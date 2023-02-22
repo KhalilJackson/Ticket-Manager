@@ -13,7 +13,7 @@ public class TicketManager {
 	 * TO-DO
 	 *
 	 */
-	private void TicketManager() {
+	private TicketManager() {
 		
 		
 	}

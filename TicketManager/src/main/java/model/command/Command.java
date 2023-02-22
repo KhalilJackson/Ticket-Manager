@@ -23,7 +23,7 @@ public class Command {
 	 * TO-DO
 	 *
 	 */
-	public void Command(CommandValue cm, String str, FeedbackCode fc, ResolutionCode rc, CancellationCode cc, String two) {
+	public Command(CommandValue cm, String str, FeedbackCode fc, ResolutionCode rc, CancellationCode cc, String two) {
 		
 		
 	}

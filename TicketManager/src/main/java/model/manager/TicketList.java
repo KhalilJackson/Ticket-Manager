@@ -1,6 +1,7 @@
 package model.manager;
 import model.ticket.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TicketList {
 	
@@ -16,8 +17,8 @@ public class TicketList {
 	 * TO-DO
 	 *
 	 */
-	public int addTicket(TicketType type, String thing1, String thing2, Catgeory category, Priority, priority, String thing3) {
-		
+	public int addTicket(TicketType type, String thing1, String thing2, Category category, Priority priority, String thing3) {
+		return 0;
 	}
 	
 	/**
@@ -33,7 +34,7 @@ public class TicketList {
 	 *
 	 */
 	public List<Ticket> getTickets(){
-		
+		return null;
 	}
 	
 	/**
@@ -41,7 +42,7 @@ public class TicketList {
 	 *
 	 */
 	public List<Ticket> getTicketsByType(TicketType type){
-		
+		return null;
 	}
 	
 	/**
@@ -49,7 +50,7 @@ public class TicketList {
 	 *
 	 */
 	public Ticket getTicketById(int id) {
-		
+		return null;
 	}
 	
 	/**

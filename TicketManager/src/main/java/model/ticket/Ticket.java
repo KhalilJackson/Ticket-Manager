@@ -1,6 +1,7 @@
 package model.ticket;
 import java.util.*;
 import java.util.ArrayList;
+import model.command.*;
 
 public class Ticket {
 

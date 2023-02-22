@@ -1,4 +1,5 @@
 package model.ticket;
+import model.command.*;
 
 public class ResolvedState implements TicketState{
 
@@ -14,7 +15,7 @@ public class ResolvedState implements TicketState{
 	 * TO-DO
 	 *
 	 */
-	public void updateState(Command) {
+	public void updateState(Command command) {
 		
 	}
 	
@@ -24,5 +25,10 @@ public class ResolvedState implements TicketState{
 	 */
 	public String getStateName() {
 		return "Resolved";
+	}
+
+	@Override
+	public void updateState() {
+		
 	}
 }

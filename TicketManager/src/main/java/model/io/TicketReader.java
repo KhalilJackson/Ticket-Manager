@@ -1,5 +1,6 @@
 package model.io;
 import model.ticket.*;
+import java.util.ArrayList;
 
 public class TicketReader {
 	

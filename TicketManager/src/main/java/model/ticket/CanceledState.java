@@ -1,4 +1,5 @@
 package model.ticket;
+import model.command.*;
 
 public class CanceledState implements TicketState{
 	
@@ -14,7 +15,7 @@ public class CanceledState implements TicketState{
 	 * TO-DO
 	 *
 	 */
-	public void updateState(Command) {
+	public void updateState(Command command) {
 		
 	}
 	

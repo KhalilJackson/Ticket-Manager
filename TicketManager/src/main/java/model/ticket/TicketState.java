@@ -1,4 +1,5 @@
 package model.ticket;
+import model.command.*;
 
 public interface TicketState {
 	
