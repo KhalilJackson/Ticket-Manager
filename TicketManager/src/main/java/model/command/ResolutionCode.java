@@ -1,5 +1,9 @@
 package model.command;
 
+/**
+ * TO-DO
+ *
+ */
 public enum ResolutionCode {
 
 	COMPLETED,

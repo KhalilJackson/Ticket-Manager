@@ -19,39 +19,65 @@ public class Command {
 	private String ownerID;
 	private String note;
 	
-	
+	/**
+	 * TO-DO
+	 *
+	 */
 	public void Command(CommandValue cm, String str, FeedbackCode fc, ResolutionCode rc, CancellationCode cc, String two) {
 		
 		
 	}
 	
+	/**
+	 * TO-DO
+	 *
+	 */
 	public CommandValue getCommand() {
 		
 		return null;
 		
 	}
 	
+	/**
+	 * TO-DO
+	 *
+	 */
 	public String getOwnerId() {
 		
 		return null;
 	}
 	
-	
+	/**
+	 * TO-DO
+	 *
+	 */
 	public ResolutionCode getResolutionCode() {
 		
 		return null;
 	}
 	
+	/**
+	 * TO-DO
+	 *
+	 */
 	public String getNote() {
 		
 		return null;
 	}
 	
+	/**
+	 * TO-DO
+	 *
+	 */
 	public FeedbackCode getFeedbackCode() {
 		
 		return null;
 	}
 	
+	/**
+	 * TO-DO
+	 *
+	 */
 	public CancellationCode getCancellationCode() {
 		
 		return null;
