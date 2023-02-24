@@ -1,7 +1,6 @@
 package edu.bowdoin.csci.TicketManager.model.io;
 
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
-
 import java.util.ArrayList;
 
 public class TicketReader {
