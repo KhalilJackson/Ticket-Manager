@@ -21,3 +21,30 @@ Copy provided test code into each test class | 1 | Requires creating test classe
 Stub out TicketReaderTest and TicketWriterTest classes | 1 | Requires having created these classes | Ethan Winters | Feb 23 | Done!
 
 Comment all code | 1 | Requires having stubbed out classes and test classes | Khalil Jackson | Feb 23 | Done!
+
+--------------------------------------------------------------------------------------------------------------------------------------
+[PROCESS POINTS MILESTONE 2]
+
+Implement Command class | 1 | No dependencies | Ethan Winters | Feb 24 | Done!
+
+Implement Ticket class methods | 2 | Must implement command | Ethan Winters | Feb 24 | In Progress
+
+Implement NewState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement WorkingState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement FeedbackState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement ResolvedState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement ClosedState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement CanceledState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement TicketReader | 2 | Must implement Ticket class | -- | -- | Not Started
+
+Implement TicketWriter | 2 | Must implement Ticket class | -- | -- | Not Started
+
+Implement TicketList | 2 | Must Implement Ticket and IO classes | -- | -- | Not Started
+
+Implement TicketManager | 2 | must Implement

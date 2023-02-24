@@ -2,7 +2,17 @@ package edu.bowdoin.csci.TicketManager.model.ticket;
 import java.util.*;
 
 import java.util.ArrayList;
-import edu.bowdoin.csci.TicketManager.model.command.*;
+import edu.bowdoin.csci.TicketManager.model.command.Command;
+import edu.bowdoin.csci.TicketManager.model.command.Command.ResolutionCode;
+import edu.bowdoin.csci.TicketManager.model.command.Command.FeedbackCode;
+import edu.bowdoin.csci.TicketManager.model.command.Command.CancellationCode;
+
+import edu.bowdoin.csci.TicketManager.model.ticket.NewState;
+import edu.bowdoin.csci.TicketManager.model.ticket.WorkingState;
+import edu.bowdoin.csci.TicketManager.model.ticket.ResolvedState;
+import edu.bowdoin.csci.TicketManager.model.ticket.FeedbackState;
+import edu.bowdoin.csci.TicketManager.model.ticket.ClosedState;
+import edu.bowdoin.csci.TicketManager.model.ticket.CanceledState;
 
 public class Ticket {
 	
@@ -60,11 +70,21 @@ public class Ticket {
 	public static final String CANCELED_NAME = null;
 	
 	private static int counter;
-	private static int ticketid;
-	private static String subject;
-	private static String caller;
-	private static String owner;
-	private static ArrayList<String> notes;
+	private int ticketId;
+	private String subject;
+	private String caller;
+	private String owner;
+	private ArrayList<String> notes;
+	
+	private ResolutionCode resolutionCode;
+	private FeedbackCode feedbackCode;
+	private CancellationCode cancellationCode;
+	private Category category;
+	private Priority priority;
+	private TicketType ticketType;
+	
+	private State state;
+	
 	
 	/**
 	 * Increments counter by one.
@@ -87,15 +107,23 @@ public class Ticket {
 	 *
 	 */
 	public Ticket(int ticketid, String state, String type, String subject, String caller, String category, String priority, String owner, ArrayList<String> codes, ArrayList<String> notes) {
-		
+		this.ticketId = ticketid;
+		this.setState(state);
+		this.setTicketType(type);
+		this.setSubject(subject);
+		this.setCaller(caller);
+		this.setCategory(category);
+		this.setPriority(priority);
+		this.setOwner(owner);
+		this.
 	}
 	
 	/**
-	 * Constructs ticket using ID, state, type, subject, caller, category, priority, and owner.
+	 * Constructs ticket using type, subject, caller, category, priority, and owner.
 	 *
 	 */
 	public Ticket(TicketType type, String subject, String caller, Category category, Priority priority, String owner) {
-		
+		this.Ticket(0, null, null, subject, caller, category, priority, owner, null, null);
 	}
 	
 	/**
