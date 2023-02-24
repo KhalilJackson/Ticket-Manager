@@ -1,5 +1,6 @@
 package edu.bowdoin.csci.TicketManager.model.command;
 
+
 public class Command {
 	
 	/**

@@ -1,1 +1,20 @@
 
+NewState 0
+Ticket.Category 100
+Ticket.TicketType 100
+CanceledState 0
+Ticket 50
+Ticket.Priority 100
+WorkingState 0
+FeedbackState 0
+ResolvedState 0
+ClosedState 0
+TicketManager 10
+TicketList 33
+Command.CancellationCode 100
+Command 73
+Command.FeedbackCode 100
+Command.ResolutionCode 100
+Command.CommandValue 100
+TicketReader 0
+TicketWriter 0
