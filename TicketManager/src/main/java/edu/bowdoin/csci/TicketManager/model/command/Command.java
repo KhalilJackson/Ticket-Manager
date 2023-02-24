@@ -1,6 +1,5 @@
 package edu.bowdoin.csci.TicketManager.model.command;
 
-//Who let the dogs out? Me? Nah fam. 'Twas he...
 
 public class Command {
 	
