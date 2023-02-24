@@ -1,4 +1,4 @@
-package edu.bowdoin.csci.TicketManager.model.manager;
+package model.manager;
 
 
 import java.util.List;
@@ -12,6 +12,8 @@ import edu.bowdoin.csci.TicketManager.model.command.Command.CancellationCode;
 import edu.bowdoin.csci.TicketManager.model.command.Command.CommandValue;
 import edu.bowdoin.csci.TicketManager.model.io.TicketReader;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
+
+import edu.bowdoin.csci.TicketManager.model.manager.*;
 
 /**
  * Tests the TicketList class.

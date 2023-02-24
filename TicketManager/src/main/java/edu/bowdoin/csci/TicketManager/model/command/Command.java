@@ -1,20 +1,69 @@
-package model.command;
+package edu.bowdoin.csci.TicketManager.model.command;
 
 public class Command {
 	
-	public static final String F_CALLER;
-	public static final String F_CHANGE;
-	public static final String F_PROVIDER;
+	/**
+	 * TO-DO
+	 *
+	 */
+	public enum CancellationCode {
+
+		DUPLICATE,
+		INAPPROPRIATE;
+
+	}
 	
-	public static final String RC_COMPLETED;
-	public static final String RC_NOT_COMPLETED;
-	public static final String RC_SOLVED;
-	public static final String RC_NOT_SOLVED;
-	public static final String RC_WORKAROUND;
-	public static final String RC_CALLER_CLOSED;
+	/**
+	 * TO-DO
+	 *
+	 */
+	public enum CommandValue {
+		PROCESS,
+		FEEDBACK,
+		RESOLVE,
+		CONFIRM,
+		REOPEN,
+		CANCEL;
+	}
 	
-	public static final String CC_DUPLICATE;
-	public static final String CC_INNAPPROPRIATE;
+	/**
+	 * TO-DO
+	 *
+	 */
+	public enum FeedbackCode {
+
+		AWAITING_CALLER,
+		AWAITING_CHANGE,
+		AWAITING_PROVIDER;
+	}
+	
+	/**
+	 * TO-DO
+	 *
+	 */
+	public enum ResolutionCode {
+
+		COMPLETED,
+		NOT_COMPLETED,
+		SOLVED,
+		WORKAROUND,
+		NOT_SOLVED,
+		CALLER_CLOSED;
+	}
+	
+	public static final String F_CALLER = null;
+	public static final String F_CHANGE = null;
+	public static final String F_PROVIDER = null;
+	
+	public static final String RC_COMPLETED = null;
+	public static final String RC_NOT_COMPLETED = null;
+	public static final String RC_SOLVED = null;
+	public static final String RC_NOT_SOLVED = null;
+	public static final String RC_WORKAROUND = null;
+	public static final String RC_CALLER_CLOSED = null;
+	
+	public static final String CC_DUPLICATE = null;
+	public static final String CC_INNAPPROPRIATE = null;
 	
 	private String ownerID;
 	private String note;

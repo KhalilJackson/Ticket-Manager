@@ -1,4 +1,4 @@
-package edu.bowdoin.csci.TicketManager.model.command;
+package model.command;
 
 
 import org.junit.jupiter.api.Assertions;
@@ -8,6 +8,7 @@ import edu.bowdoin.csci.TicketManager.model.command.Command.CancellationCode;
 import edu.bowdoin.csci.TicketManager.model.command.Command.CommandValue;
 import edu.bowdoin.csci.TicketManager.model.command.Command.FeedbackCode;
 import edu.bowdoin.csci.TicketManager.model.command.Command.ResolutionCode;
+import edu.bowdoin.csci.TicketManager.model.command.Command;
 
 /**
  * Command Test

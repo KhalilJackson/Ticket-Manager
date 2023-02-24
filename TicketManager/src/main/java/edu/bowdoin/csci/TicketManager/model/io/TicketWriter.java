@@ -1,6 +1,7 @@
-package model.io;
-import model.ticket.*;
+package edu.bowdoin.csci.TicketManager.model.io;
 import java.util.ArrayList;
+
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
 
 public class TicketWriter {
 

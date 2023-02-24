@@ -1,6 +1,10 @@
-package model.manager;
-import model.command.Command;
-import model.ticket.*;
+package edu.bowdoin.csci.TicketManager.model.manager;
+
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.TicketType;
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Category;
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Priority;
+import edu.bowdoin.csci.TicketManager.model.command.Command;
 
 /**
  * @author ewinters

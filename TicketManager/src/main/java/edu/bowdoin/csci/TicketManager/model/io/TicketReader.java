@@ -1,5 +1,7 @@
-package model.io;
-import model.ticket.*;
+package edu.bowdoin.csci.TicketManager.model.io;
+
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
+
 import java.util.ArrayList;
 
 public class TicketReader {
@@ -16,7 +18,7 @@ public class TicketReader {
 	 * TO-DO
 	 *
 	 */
-	public ArrayList<Ticket> readTicketFile(String something){
+	public static ArrayList<Ticket> readTicketFile(String something){
 		return null;
 	}
 

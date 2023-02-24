@@ -1,5 +1,10 @@
-package model.manager;
-import model.ticket.*;
+package edu.bowdoin.csci.TicketManager.model.manager;
+
+import edu.bowdoin.csci.TicketManager.model.command.Command;
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Category;
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Priority;
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.TicketType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +30,7 @@ public class TicketList {
 	 * TO-DO
 	 *
 	 */
-	public void addTickets(List<Ticket>) {
+	public void addTickets(List<Ticket> tickets) {
 		
 	}
 	
@@ -57,7 +62,7 @@ public class TicketList {
 	 * TO-DO
 	 *
 	 */
-	public void executeCommand(int i, Command, command) {
+	public void executeCommand(int i, Command command) {
 		
 	}
 	

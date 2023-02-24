@@ -1,5 +1,6 @@
-package model.ticket;
-import model.command.*;
+package edu.bowdoin.csci.TicketManager.model.ticket;
+
+import edu.bowdoin.csci.TicketManager.model.command.Command;
 
 public class NewState implements TicketState{
 	
@@ -25,11 +26,6 @@ public class NewState implements TicketState{
 	 */
 	public String getStateName() {
 		return "New";
-	}
-
-	@Override
-	public void updateState() {
-		
 	}
 
 }

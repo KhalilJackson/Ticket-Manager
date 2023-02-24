@@ -1,4 +1,4 @@
-package model.testIO;
+package model.io;
 
 public class TestTicketReader {
 

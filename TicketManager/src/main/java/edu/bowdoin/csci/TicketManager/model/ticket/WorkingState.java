@@ -1,5 +1,6 @@
-package model.ticket;
-import model.command.*;
+package edu.bowdoin.csci.TicketManager.model.ticket;
+
+import edu.bowdoin.csci.TicketManager.model.command.Command;
 
 public class WorkingState implements TicketState{
 	
@@ -25,11 +26,6 @@ public class WorkingState implements TicketState{
 	 */
 	public String getStateName() {
 		return "Working";
-	}
-
-	@Override
-	public void updateState() {
-		
 	}
 
 }

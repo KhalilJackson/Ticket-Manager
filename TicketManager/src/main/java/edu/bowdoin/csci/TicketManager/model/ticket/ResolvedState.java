@@ -1,5 +1,6 @@
-package model.ticket;
-import model.command.*;
+package edu.bowdoin.csci.TicketManager.model.ticket;
+
+import edu.bowdoin.csci.TicketManager.model.command.Command;
 
 public class ResolvedState implements TicketState{
 
@@ -27,8 +28,4 @@ public class ResolvedState implements TicketState{
 		return "Resolved";
 	}
 
-	@Override
-	public void updateState() {
-		
-	}
 }

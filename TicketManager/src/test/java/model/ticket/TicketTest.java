@@ -1,4 +1,4 @@
-package edu.bowdoin.csci.TicketManager.model.ticket;
+package model.ticket;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Category;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Priority;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.TicketType;

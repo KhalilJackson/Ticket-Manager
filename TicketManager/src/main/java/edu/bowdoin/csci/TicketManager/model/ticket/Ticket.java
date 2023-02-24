@@ -1,27 +1,63 @@
-package model.ticket;
+package edu.bowdoin.csci.TicketManager.model.ticket;
 import java.util.*;
+
 import java.util.ArrayList;
-import model.command.*;
+import edu.bowdoin.csci.TicketManager.model.command.*;
 
 public class Ticket {
+	
+	/**
+	 * TO-DO
+	 *
+	 */
+	public enum Category {
 
-	public static final String TT_REQUEST;
-	public static final String TT_INCIDENT;
-	public static final String C_INQUIRY;
-	public static final String C_SOFTWARE;
-	public static final String C_HARDWARE;
-	public static final String C_NETWORK;
-	public static final String C_DATABASE;
-	public static final String P_URGENT;
-	public static final String P_HIGH;
-	public static final String P_MEDIUM;
-	public static final String P_LOW;
-	public static final String NEW_NAME;
-	public static final String WORKING_NAME;
-	public static final String FEEDBACK_NAME;
-	public static final String RESOLVED_NAME;
-	public static final String CLOSED_NAME;
-	public static final String CANCELED_NAME;
+		INQUIRY,
+		SOFTWARE,
+		HARDWARE,
+		NETWORK,
+		DATABASE;
+	}
+	
+	/**
+	 * TO-DO
+	 *
+	 */
+	public enum Priority {
+
+		URGENT,
+		HIGH,
+		MEDIUM,
+		LOW;
+	}
+	
+	/**
+	 * TO-DO
+	 *
+	 */
+	public enum TicketType {
+
+		REQUEST,
+		INCIDENT;
+	}
+
+	public static final String TT_REQUEST = null;
+	public static final String TT_INCIDENT = null;
+	public static final String C_INQUIRY = null;
+	public static final String C_SOFTWARE = null;
+	public static final String C_HARDWARE = null;
+	public static final String C_NETWORK = null;
+	public static final String C_DATABASE = null;
+	public static final String P_URGENT = null;
+	public static final String P_HIGH = null;
+	public static final String P_MEDIUM = null;
+	public static final String P_LOW = null;
+	public static final String NEW_NAME = null;
+	public static final String WORKING_NAME = null;
+	public static final String FEEDBACK_NAME = null;
+	public static final String RESOLVED_NAME = null;
+	public static final String CLOSED_NAME = null;
+	public static final String CANCELED_NAME = null;
 	
 	private static int counter;
 	private static int ticketid;
@@ -50,7 +86,7 @@ public class Ticket {
 	 * TO-DO
 	 *
 	 */
-	public Ticket(int ticketid, String subject, String caller, String owner) {
+	public Ticket(int ticketid, String state, String type, String subject, String caller, String category, String priority, String owner, ArrayList<String> codes, ArrayList<String> notes) {
 		
 	}
 	

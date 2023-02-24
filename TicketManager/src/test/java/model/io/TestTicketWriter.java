@@ -1,7 +1,7 @@
 /**
  * 
  */
-package model.testIO;
+package model.io;
 
 /**
  * @author ewinters
