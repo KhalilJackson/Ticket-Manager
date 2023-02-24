@@ -5,7 +5,7 @@ import edu.bowdoin.csci.TicketManager.model.command.Command;
 public class ClosedState implements TicketState{
 	
 	/**
-	 * TO-DO
+	 * Closed state constructor that takes in no arguments.
 	 *
 	 */
 	ClosedState(){
@@ -13,7 +13,7 @@ public class ClosedState implements TicketState{
 	}
 	
 	/**
-	 * TO-DO
+	 * Updates state.
 	 *
 	 */
 	public void updateState(Command command) {
@@ -21,7 +21,7 @@ public class ClosedState implements TicketState{
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns closed state name.
 	 *
 	 */
 	public String getStateName() {

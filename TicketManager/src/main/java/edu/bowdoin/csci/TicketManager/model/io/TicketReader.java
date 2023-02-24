@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class TicketReader {
 	
 	/**
-	 * TO-DO
+	 * Constructor for TicketReader that takes in no parameters.
 	 *
 	 */
 	public TicketReader() {
@@ -15,7 +15,7 @@ public class TicketReader {
 	}
 	
 	/**
-	 * TO-DO
+	 * Takes in a file string and reads the ticket.
 	 *
 	 */
 	public static ArrayList<Ticket> readTicketFile(String something){

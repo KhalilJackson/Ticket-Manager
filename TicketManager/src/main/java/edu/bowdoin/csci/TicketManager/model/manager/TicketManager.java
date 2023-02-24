@@ -14,7 +14,7 @@ public class TicketManager {
 	
 	
 	/**
-	 * TO-DO
+	 * Constructor for TicketManager that takes no parameters.
 	 *
 	 */
 	private TicketManager() {
@@ -23,7 +23,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets instance of TicketManager.
 	 *
 	 */
 	public static TicketManager getInstance() {
@@ -33,7 +33,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Svaes ticket to file from String input.
 	 *
 	 */
 	public void saveTicketsToFile(String thing) {
@@ -42,7 +42,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Loads ticket from file using inputted string.
 	 *
 	 */
 	public void loadTicketsFromFile(String thing) {
@@ -51,7 +51,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Creates new ticket list and takes no parameters.
 	 *
 	 */
 	public void createNewTicketList() {
@@ -60,7 +60,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns 2d String array of tickets.
 	 *
 	 */
 	public String[][] getTicketsForDisplay() {
@@ -69,7 +69,7 @@ public class TicketManager {
 	}
 
 	/**
-	 * TO-DO
+	 * Returns 2d String array of tickets by display type.
 	 *
 	 */
 	public String[][] getTicketsForDisplayByType(TicketType ticket) {
@@ -78,7 +78,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns ticket from list by ID number.
 	 *
 	 */
 	public Ticket getTicketById(int id) {
@@ -87,7 +87,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Executes given command.
 	 *
 	 */
 	public void executeCommand(int num, Command comm) {
@@ -96,7 +96,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Deletes ticket by ID number.
 	 *
 	 */
 	public void deleteTicketById(int id) {
@@ -105,7 +105,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Adds ticket to ticket list.
 	 *
 	 */
 	public void addTicketToList(TicketType ticketType, String s1, String s2, Category cat, Priority p, String s3) {

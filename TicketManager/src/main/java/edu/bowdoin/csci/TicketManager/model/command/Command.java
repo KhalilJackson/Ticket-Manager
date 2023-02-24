@@ -4,7 +4,7 @@ package edu.bowdoin.csci.TicketManager.model.command;
 public class Command {
 	
 	/**
-	 * TO-DO
+	 * Enumeration class of cancellation code constants.
 	 *
 	 */
 	public enum CancellationCode {
@@ -15,7 +15,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Enumeration class of command value constants.
 	 *
 	 */
 	public enum CommandValue {
@@ -28,7 +28,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Enumeration class of feedback code constants.
 	 *
 	 */
 	public enum FeedbackCode {
@@ -39,7 +39,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Enumeration class of resolution code constants.
 	 *
 	 */
 	public enum ResolutionCode {
@@ -70,7 +70,8 @@ public class Command {
 	private String note;
 	
 	/**
-	 * TO-DO
+	 * Constructor creates and instance of the Command class using CommandValue, ResolutionCode, FeedbackCode, 
+	 * CancellationCode, and two Strings.
 	 *
 	 */
 	public Command(CommandValue cm, String str, FeedbackCode fc, ResolutionCode rc, CancellationCode cc, String two) {
@@ -79,7 +80,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets the command and takes.
 	 *
 	 */
 	public CommandValue getCommand() {
@@ -89,7 +90,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets the owner ID.
 	 *
 	 */
 	public String getOwnerId() {
@@ -98,7 +99,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets resolution code.
 	 *
 	 */
 	public ResolutionCode getResolutionCode() {
@@ -107,7 +108,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets note.
 	 *
 	 */
 	public String getNote() {
@@ -116,7 +117,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets feedback code.
 	 *
 	 */
 	public FeedbackCode getFeedbackCode() {
@@ -125,7 +126,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets cancellation code.
 	 *
 	 */
 	public CancellationCode getCancellationCode() {

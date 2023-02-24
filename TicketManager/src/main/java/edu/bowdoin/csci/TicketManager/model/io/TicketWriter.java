@@ -6,7 +6,7 @@ import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
 public class TicketWriter {
 
 	/**
-	 * TO-DO
+	 * Constructor for TicketWriter() that takes no parameters.
 	 *
 	 */
 	public TicketWriter() {
@@ -14,7 +14,7 @@ public class TicketWriter {
 	}
 	
 	/**
-	 * TO-DO
+	 * Takes in a string and ArrayList to write the ticket file.
 	 *
 	 */
 	public void writeTicketFile(String something, ArrayList<Ticket> tickets) {

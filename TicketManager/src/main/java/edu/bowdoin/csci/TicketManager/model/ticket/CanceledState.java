@@ -6,7 +6,7 @@ import edu.bowdoin.csci.TicketManager.model.command.Command;
 public class CanceledState implements TicketState{
 	
 	/**
-	 * TO-DO
+	 * Constructor of CanceledState class without parameters.
 	 *
 	 */
 	CanceledState(){
@@ -14,7 +14,7 @@ public class CanceledState implements TicketState{
 	}
 	
 	/**
-	 * TO-DO
+	 * Updates state.
 	 *
 	 */
 	public void updateState(Command command) {
@@ -22,7 +22,7 @@ public class CanceledState implements TicketState{
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets the name of the state, which is canceled in this case.
 	 *
 	 */
 	public String getStateName() {

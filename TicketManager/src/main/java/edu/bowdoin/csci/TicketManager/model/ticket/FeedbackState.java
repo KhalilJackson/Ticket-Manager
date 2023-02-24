@@ -5,7 +5,7 @@ import edu.bowdoin.csci.TicketManager.model.command.Command;
 public class FeedbackState implements TicketState{
 	
 	/**
-	 * TO-DO
+	 * Constructor that takes in no arguments.
 	 *
 	 */
 	FeedbackState(){
@@ -13,7 +13,7 @@ public class FeedbackState implements TicketState{
 	}
 	
 	/**
-	 * TO-DO
+	 * Updates state.
 	 *
 	 */
 	public void updateState(Command command) {
@@ -21,7 +21,7 @@ public class FeedbackState implements TicketState{
 	}
 	
 	/**
-	 * TO-DO
+	 * Return Feedback state name.
 	 *
 	 */
 	public String getStateName() {

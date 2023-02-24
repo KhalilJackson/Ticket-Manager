@@ -5,7 +5,7 @@ import edu.bowdoin.csci.TicketManager.model.command.Command;
 public class ResolvedState implements TicketState{
 
 	/**
-	 * TO-DO
+	 * Constructor that takes in no parameters.
 	 *
 	 */
 	ResolvedState(){
@@ -13,7 +13,7 @@ public class ResolvedState implements TicketState{
 	}
 	
 	/**
-	 * TO-DO
+	 * Updates state.
 	 *
 	 */
 	public void updateState(Command command) {
@@ -21,7 +21,7 @@ public class ResolvedState implements TicketState{
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns Resolved state name.
 	 *
 	 */
 	public String getStateName() {
