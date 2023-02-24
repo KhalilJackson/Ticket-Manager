@@ -7,7 +7,7 @@ import edu.bowdoin.csci.TicketManager.model.command.*;
 public class Ticket {
 	
 	/**
-	 * TO-DO
+	 * Enums class that sets constants for categories.
 	 *
 	 */
 	public enum Category {
@@ -20,7 +20,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Enums class that sets constant for priority.
 	 *
 	 */
 	public enum Priority {
@@ -32,7 +32,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Enums class that sets constant for ticket type.
 	 *
 	 */
 	public enum TicketType {
@@ -67,7 +67,7 @@ public class Ticket {
 	private static ArrayList<String> notes;
 	
 	/**
-	 * TO-DO
+	 * Increments counter by one.
 	 *
 	 */
 	static public void IncrementCounter() {
@@ -75,7 +75,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets counter to count.
 	 *
 	 */
 	static public void setCounter(int count) {
@@ -83,7 +83,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Constructs ticket using ID, state, type, subject, caller, category, priority, owner, codes, and notes.
 	 *
 	 */
 	public Ticket(int ticketid, String state, String type, String subject, String caller, String category, String priority, String owner, ArrayList<String> codes, ArrayList<String> notes) {
@@ -91,7 +91,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Constructs ticket using ID, state, type, subject, caller, category, priority, and owner.
 	 *
 	 */
 	public Ticket(TicketType type, String subject, String caller, Category category, Priority priority, String owner) {
@@ -99,7 +99,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns caller.
 	 *
 	 */
 	public String getCaller() {
@@ -107,7 +107,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns cancellation code.
 	 *
 	 */
 	public String getCancellationCode() {
@@ -115,7 +115,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns category.
 	 *
 	 */
 	public String getCategory() {
@@ -123,7 +123,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns feedback code.
 	 *
 	 */
 	public String getFeedbackCode() {
@@ -131,7 +131,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns notes.
 	 *
 	 */
 	public String getNotes() {
@@ -139,7 +139,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns owner.
 	 *
 	 */
 	public String getOwner() {
@@ -147,7 +147,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns priority.
 	 *
 	 */
 	public String getPriority() {
@@ -155,7 +155,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns resolution code.
 	 *
 	 */
 	public String getResolutionCode() {
@@ -163,7 +163,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns state.
 	 *
 	 */
 	public String getState() {
@@ -171,7 +171,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns subject.
 	 *
 	 */
 	public String getSubject() {
@@ -179,7 +179,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns ticket ID.
 	 *
 	 */
 	public int getTicketId() {
@@ -187,7 +187,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns ticket type.
 	 *
 	 */
 	public TicketType getTicketType() {
@@ -195,7 +195,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Return ticket type string.
 	 *
 	 */
 	public String getTicketTypeString() {
@@ -203,7 +203,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets caller.
 	 *
 	 */
 	private void setCaller(String caller) {
@@ -211,7 +211,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets cancellation code.
 	 *
 	 */
 	private void setCancellationCode(String cc) {
@@ -219,7 +219,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets category.
 	 *
 	 */
 	private void setCategory(String category) {
@@ -227,7 +227,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets owner.
 	 *
 	 */
 	private void setOwner(String owner) {
@@ -235,7 +235,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets feedback code.
 	 *
 	 */
 	private void setFeedbackCode(String feedback) {
@@ -243,7 +243,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets priority.
 	 *
 	 */
 	private void setPriority(String priority) {
@@ -251,7 +251,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets resolution code.
 	 *
 	 */
 	private void setResolutionCode(String resolution) {
@@ -259,7 +259,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets state.
 	 *
 	 */
 	private void setState(String state) {
@@ -267,7 +267,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets subject.
 	 *
 	 */
 	private void setSubject(String subject) {
@@ -275,7 +275,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Sets ticket type.
 	 *
 	 */
 	private void setTicketType(String ticketType) {
@@ -283,7 +283,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * To string method.
 	 *
 	 */
 	public String toString() {
@@ -291,7 +291,7 @@ public class Ticket {
 	}
 	
 	/**
-	 * TO-DO
+	 * Updates command.
 	 *
 	 */
 	public void update(Command command) {

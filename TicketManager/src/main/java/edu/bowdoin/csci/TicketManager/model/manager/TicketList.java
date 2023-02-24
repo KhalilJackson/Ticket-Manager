@@ -11,7 +11,7 @@ import java.util.List;
 public class TicketList {
 	
 	/**
-	 * TO-DO
+	 * Constructor for TicketList class
 	 *
 	 */
 	public TicketList() {
@@ -19,7 +19,7 @@ public class TicketList {
 	}
 	
 	/**
-	 * TO-DO
+	 * Creates a ticket given the input parameters and adds it to the ticket list
 	 *
 	 */
 	public int addTicket(TicketType type, String thing1, String thing2, Category category, Priority priority, String thing3) {
@@ -27,7 +27,7 @@ public class TicketList {
 	}
 	
 	/**
-	 * TO-DO
+	 * Adds each ticket in a given array of tickets to the ticket list
 	 *
 	 */
 	public void addTickets(List<Ticket> tickets) {
@@ -35,7 +35,7 @@ public class TicketList {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns the ticket list
 	 *
 	 */
 	public List<Ticket> getTickets(){
@@ -43,7 +43,7 @@ public class TicketList {
 	}
 	
 	/**
-	 * TO-DO
+	 * returns the tickets in the list that have a given type
 	 *
 	 */
 	public List<Ticket> getTicketsByType(TicketType type){
@@ -51,7 +51,7 @@ public class TicketList {
 	}
 	
 	/**
-	 * TO-DO
+	 * Returns the ticket in the list with the given id
 	 *
 	 */
 	public Ticket getTicketById(int id) {
@@ -59,7 +59,7 @@ public class TicketList {
 	}
 	
 	/**
-	 * TO-DO
+	 * Executes the given command
 	 *
 	 */
 	public void executeCommand(int i, Command command) {
@@ -67,7 +67,7 @@ public class TicketList {
 	}
 	
 	/**
-	 * TO-DO
+	 * Removes the ticket in the list with the given id
 	 *
 	 */
 	public void deleteTicketById(int id) {

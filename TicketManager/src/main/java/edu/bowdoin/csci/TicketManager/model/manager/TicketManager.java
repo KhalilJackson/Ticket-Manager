@@ -14,7 +14,7 @@ public class TicketManager {
 	
 	
 	/**
-	 * TO-DO
+	 * Constructor for the ticket class
 	 *
 	 */
 	private TicketManager() {
@@ -23,7 +23,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * returns this instance of the TicketManager class
 	 *
 	 */
 	public static TicketManager getInstance() {
@@ -33,7 +33,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Writes an array of tickets to a file at the given path
 	 *
 	 */
 	public void saveTicketsToFile(String thing) {
@@ -42,7 +42,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Creates an array of tickets given a file of tickets at the given path
 	 *
 	 */
 	public void loadTicketsFromFile(String thing) {
@@ -51,7 +51,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Creates a new list of tickets
 	 *
 	 */
 	public void createNewTicketList() {
@@ -60,7 +60,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * Fetches tickets and ticket fields to display in the ui
 	 *
 	 */
 	public String[][] getTicketsForDisplay() {
@@ -69,7 +69,7 @@ public class TicketManager {
 	}
 
 	/**
-	 * TO-DO
+	 * Fetches tickets and ticket fields to display in the ui based on their type
 	 *
 	 */
 	public String[][] getTicketsForDisplayByType(TicketType ticket) {
@@ -78,7 +78,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * returns the ticket with the given id
 	 *
 	 */
 	public Ticket getTicketById(int id) {
@@ -87,16 +87,16 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * executes the given command
 	 *
 	 */
-	public void executeCommand(int num, Command comm) {
+	public void executeCommand(int num, Command command) {
 		
 		
 	}
 	
 	/**
-	 * TO-DO
+	 * deletes the ticket in the ticket list with the given id
 	 *
 	 */
 	public void deleteTicketById(int id) {
@@ -105,7 +105,7 @@ public class TicketManager {
 	}
 	
 	/**
-	 * TO-DO
+	 * creates a ticket with the given fields and adds it to the ticket list
 	 *
 	 */
 	public void addTicketToList(TicketType ticketType, String s1, String s2, Category cat, Priority p, String s3) {

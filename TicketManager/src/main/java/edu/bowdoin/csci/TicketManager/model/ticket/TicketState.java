@@ -5,9 +5,14 @@ import edu.bowdoin.csci.TicketManager.model.command.Command;
 public interface TicketState {
 	
 	/**
-	 * TO-DO
+	 * updates the state based on the given command
 	 *
 	 */
 	public void updateState(Command command);
+	
+	/**
+	 * returns the name of the state
+	 * @return
+	 */
 	public String getStateName();
 }

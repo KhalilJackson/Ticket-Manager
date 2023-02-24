@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class TicketReader {
 	
 	/**
-	 * TO-DO
+	 * TicketReader constructor
 	 *
 	 */
 	public TicketReader() {
@@ -14,7 +14,7 @@ public class TicketReader {
 	}
 	
 	/**
-	 * TO-DO
+	 * Takes in the ticket file and creates the array of tickets
 	 *
 	 */
 	public static ArrayList<Ticket> readTicketFile(String something){

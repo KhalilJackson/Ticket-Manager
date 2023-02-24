@@ -4,7 +4,7 @@ package edu.bowdoin.csci.TicketManager.model.command;
 public class Command {
 	
 	/**
-	 * TO-DO
+	 * Enumeration class of canellation code constants
 	 *
 	 */
 	public enum CancellationCode {
@@ -15,7 +15,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Enumeration class of cammnd value constants
 	 *
 	 */
 	public enum CommandValue {
@@ -28,7 +28,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Enumeration class of feedback code constants
 	 *
 	 */
 	public enum FeedbackCode {
@@ -39,7 +39,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Enumeration class of resolution code constants
 	 *
 	 */
 	public enum ResolutionCode {
@@ -70,7 +70,7 @@ public class Command {
 	private String note;
 	
 	/**
-	 * TO-DO
+	 * Command class constructor
 	 *
 	 */
 	public Command(CommandValue cm, String str, FeedbackCode fc, ResolutionCode rc, CancellationCode cc, String two) {
@@ -79,7 +79,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets the command value
 	 *
 	 */
 	public CommandValue getCommand() {
@@ -89,7 +89,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets the owner id
 	 *
 	 */
 	public String getOwnerId() {
@@ -98,7 +98,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * gets the resolution code
 	 *
 	 */
 	public ResolutionCode getResolutionCode() {
@@ -107,7 +107,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets the ticket notes
 	 *
 	 */
 	public String getNote() {
@@ -116,7 +116,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets the feedback code
 	 *
 	 */
 	public FeedbackCode getFeedbackCode() {
@@ -125,7 +125,7 @@ public class Command {
 	}
 	
 	/**
-	 * TO-DO
+	 * Gets the cancellation code
 	 *
 	 */
 	public CancellationCode getCancellationCode() {
