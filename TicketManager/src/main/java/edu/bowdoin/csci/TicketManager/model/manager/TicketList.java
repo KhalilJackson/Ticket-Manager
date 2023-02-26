@@ -11,7 +11,11 @@ import java.util.List;
 public class TicketList {
 	
 	/**
+<<<<<<< HEAD
+	 * Constructor for TicketList that takes in no parameters.
+=======
 	 * Constructor for TicketList class
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public TicketList() {
@@ -19,7 +23,11 @@ public class TicketList {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Adds ticket to ticket list.
+=======
 	 * Creates a ticket given the input parameters and adds it to the ticket list
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public int addTicket(TicketType type, String thing1, String thing2, Category category, Priority priority, String thing3) {
@@ -27,7 +35,11 @@ public class TicketList {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Adds lists of tickets to ticket list.
+=======
 	 * Adds each ticket in a given array of tickets to the ticket list
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void addTickets(List<Ticket> tickets) {
@@ -35,7 +47,11 @@ public class TicketList {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Gets a list of tickets.
+=======
 	 * Returns the ticket list
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public List<Ticket> getTickets(){
@@ -43,7 +59,11 @@ public class TicketList {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Gets tickets from ticket list of inputed ticket type.
+=======
 	 * returns the tickets in the list that have a given type
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public List<Ticket> getTicketsByType(TicketType type){
@@ -51,7 +71,11 @@ public class TicketList {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Gets ticket by ID number.
+=======
 	 * Returns the ticket in the list with the given id
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public Ticket getTicketById(int id) {
@@ -59,7 +83,11 @@ public class TicketList {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Executed command given command and int.
+=======
 	 * Executes the given command
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void executeCommand(int i, Command command) {
@@ -67,7 +95,11 @@ public class TicketList {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Deletes ticket from list using ID number.
+=======
 	 * Removes the ticket in the list with the given id
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void deleteTicketById(int id) {

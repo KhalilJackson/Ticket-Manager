@@ -14,7 +14,11 @@ public class TicketManager {
 	
 	
 	/**
+<<<<<<< HEAD
+	 * Constructor for TicketManager that takes no parameters.
+=======
 	 * Constructor for the ticket class
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	private TicketManager() {
@@ -23,7 +27,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Gets instance of TicketManager.
+=======
 	 * returns this instance of the TicketManager class
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public static TicketManager getInstance() {
@@ -33,7 +41,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Svaes ticket to file from String input.
+=======
 	 * Writes an array of tickets to a file at the given path
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void saveTicketsToFile(String thing) {
@@ -42,7 +54,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Loads ticket from file using inputted string.
+=======
 	 * Creates an array of tickets given a file of tickets at the given path
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void loadTicketsFromFile(String thing) {
@@ -51,7 +67,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Creates new ticket list and takes no parameters.
+=======
 	 * Creates a new list of tickets
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void createNewTicketList() {
@@ -60,7 +80,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Returns 2d String array of tickets.
+=======
 	 * Fetches tickets and ticket fields to display in the ui
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public String[][] getTicketsForDisplay() {
@@ -69,7 +93,11 @@ public class TicketManager {
 	}
 
 	/**
+<<<<<<< HEAD
+	 * Returns 2d String array of tickets by display type.
+=======
 	 * Fetches tickets and ticket fields to display in the ui based on their type
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public String[][] getTicketsForDisplayByType(TicketType ticket) {
@@ -78,7 +106,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Returns ticket from list by ID number.
+=======
 	 * returns the ticket with the given id
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public Ticket getTicketById(int id) {
@@ -87,7 +119,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Executes given command.
+=======
 	 * executes the given command
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void executeCommand(int num, Command command) {
@@ -96,7 +132,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Deletes ticket by ID number.
+=======
 	 * deletes the ticket in the ticket list with the given id
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void deleteTicketById(int id) {
@@ -105,7 +145,11 @@ public class TicketManager {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Adds ticket to ticket list.
+=======
 	 * creates a ticket with the given fields and adds it to the ticket list
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void addTicketToList(TicketType ticketType, String s1, String s2, Category cat, Priority p, String s3) {

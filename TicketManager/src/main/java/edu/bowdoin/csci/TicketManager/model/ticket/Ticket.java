@@ -17,7 +17,7 @@ import edu.bowdoin.csci.TicketManager.model.ticket.CanceledState;
 public class Ticket {
 	
 	/**
-	 * Enums class that sets constants for categories.
+	 * Enums class that sets constants for categories. Testing push ...
 	 *
 	 */
 	public enum Category {
@@ -147,7 +147,11 @@ public class Ticket {
 	}
 	
 	/**
+<<<<<<< HEAD
+	 * Constructs ticket using ID, state, type, subject, caller, category, priority, and owner.
+=======
 	 * Constructs ticket using type, subject, caller, category, priority, and owner.
+>>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public Ticket(TicketType type, String subject, String caller, Category category, Priority priority, String notes) {
