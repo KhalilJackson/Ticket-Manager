@@ -52,19 +52,19 @@ public class Command {
 		CALLER_CLOSED;
 	}
 	
-	public static final String F_CALLER = null;
-	public static final String F_CHANGE = null;
-	public static final String F_PROVIDER = null;
+	public static final String F_CALLER = "Awaiting Caller";
+	public static final String F_CHANGE = "Awaiting Change";
+	public static final String F_PROVIDER = "Awaiting Provider";
 	
-	public static final String RC_COMPLETED = null;
-	public static final String RC_NOT_COMPLETED = null;
-	public static final String RC_SOLVED = null;
-	public static final String RC_NOT_SOLVED = null;
-	public static final String RC_WORKAROUND = null;
-	public static final String RC_CALLER_CLOSED = null;
+	public static final String RC_COMPLETED = "Completed";
+	public static final String RC_NOT_COMPLETED = "Not Completed";
+	public static final String RC_SOLVED = "Solved";
+	public static final String RC_NOT_SOLVED = "Not Solved";
+	public static final String RC_WORKAROUND = "Workaround";
+	public static final String RC_CALLER_CLOSED = "Caller Closed";
 	
-	public static final String CC_DUPLICATE = null;
-	public static final String CC_INNAPPROPRIATE = null;
+	public static final String CC_DUPLICATE = "Duplicate";
+	public static final String CC_INAPPROPRIATE = "Inappropriate";
 	
 	private String ownerId;
 	private String note;

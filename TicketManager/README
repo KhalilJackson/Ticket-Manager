@@ -47,4 +47,4 @@ Implement TicketWriter | 2 | Must implement Ticket class | -- | -- | Not Started
 
 Implement TicketList | 2 | Must Implement Ticket and IO classes | -- | -- | Not Started
 
-Implement TicketManager | 2 | must Implement
+Implement TicketManager | 2 | Must Implement Ticket and IO classes | -- | -- | Not Started 

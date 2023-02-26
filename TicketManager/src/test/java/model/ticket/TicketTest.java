@@ -11,6 +11,12 @@ import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Category;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Priority;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.TicketType;
 
+import edu.bowdoin.csci.TicketManager.model.command.Command;
+import edu.bowdoin.csci.TicketManager.model.command.Command.ResolutionCode;
+import edu.bowdoin.csci.TicketManager.model.command.Command.FeedbackCode;
+import edu.bowdoin.csci.TicketManager.model.command.Command.CancellationCode;
+import edu.bowdoin.csci.TicketManager.model.command.Command.CommandValue;
+
 /**
  * TicketTest
  *
@@ -174,5 +180,18 @@ public class TicketTest {
 			Assertions.assertEquals("Ticket id must be a value greater than 0.", e.getMessage());
 		}
 	}
+	
+	/**
+	 * Ensures that update() method works properly
+	 */
+	//@Test
+	//public void testUpdate() {
+	//	try {
+	//		Ticket ticket = new Ticket(TicketType.REQUEST, "Request", "sesmith5", Category.DATABASE, Priority.URGENT, "a note");
+	//		Command command = new Command(CommandValue.CANCEL, "sesmith5", null, null, null, null);
+	//		ticket.update(command);
+	//		Assertions.assertEquals(ticket.getState(), )
+	//	}
+	//}
 
 }
