@@ -84,12 +84,12 @@ public class Ticket {
 	private TicketType ticketType;
 	
 	private TicketState state;
-	private NewState newState;
-	private WorkingState workingState;
-	private ResolvedState resolvedState;
-	private FeedbackState feedbackState;
-	private ClosedState closedState;
-	private CanceledState canceledState;
+	private NewState newState = new NewState();
+	private WorkingState workingState = new WorkingState();
+	private ResolvedState resolvedState = new ResolvedState();
+	private FeedbackState feedbackState = new FeedbackState();
+	private ClosedState closedState = new ClosedState();
+	private CanceledState canceledState = new CanceledState();
 	
 	
 	/**
@@ -105,6 +105,11 @@ public class Ticket {
 	 *
 	 */
 	static public void setCounter(int count) {
+		
+		if(count < 1) {
+			throw new IllegalArgumentException("Ticket id must be a value greater than 0.");
+		}
+		
 		counter = count;
 	}
 	
@@ -114,7 +119,8 @@ public class Ticket {
 	 */
 	public Ticket(int ticketid, String state, String type, String subject, String caller, String category, String priority, String owner, ArrayList<String> codes, ArrayList<String> notes) {
 		
-		this.ticketId = ticketid;
+		setCounter(ticketid);
+		this.ticketId = counter;
 		this.setState(state);
 		this.setTicketType(type);
 		this.setSubject(subject);
@@ -132,26 +138,42 @@ public class Ticket {
 			this.setFeedbackCode(codes.get(1));
 			this.setCancellationCode(codes.get(2));
 		} else {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Bad Codes");
 		}
 		
 		this.notes = notes;
+		
+		IncrementCounter();
 	}
 	
 	/**
 	 * Constructs ticket using type, subject, caller, category, priority, and owner.
 	 *
 	 */
-	public Ticket(TicketType type, String subject, String caller, Category category, Priority priority, String owner) {
-		this.ticketId = 1;
+	public Ticket(TicketType type, String subject, String caller, Category category, Priority priority, String notes) {
+		this.ticketId = counter;
 		this.setState("New");
+		
+		if(type == null) {
+			throw new IllegalArgumentException();
+		}
 		this.ticketType = type;
+		
 		this.setSubject(subject);
 		this.setCaller(caller);
 		this.category = category;
 		this.priority = priority;
-		this.setOwner(owner);
-		this.notes = null;
+		this.setOwner("");
+		
+		if(notes == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		ArrayList<String> arrayNotes = new ArrayList<String>();
+		arrayNotes.add(notes);
+		this.notes = arrayNotes;
+		
+		IncrementCounter();
 	}
 	
 	/**
@@ -167,6 +189,11 @@ public class Ticket {
 	 *
 	 */
 	public String getCancellationCode() {
+		
+		if(this.cancellationCode == null) {
+			return null;
+		}
+		
 		switch(this.cancellationCode) {
 		    case DUPLICATE:
 		    	return Command.CC_DUPLICATE;
@@ -184,6 +211,11 @@ public class Ticket {
 	 *
 	 */
 	public String getCategory() {
+		
+		if(this.category == null) {
+			return null;
+		}
+		
 		switch(this.category) {
 		   case INQUIRY:
 			   return C_INQUIRY;
@@ -210,6 +242,11 @@ public class Ticket {
 	 *
 	 */
 	public String getFeedbackCode() {
+		
+		if(this.feedbackCode == null) {
+			return null;
+		}
+		
 		switch(this.feedbackCode) {
 		   case AWAITING_CALLER:
 			   return Command.F_CALLER;
@@ -232,7 +269,7 @@ public class Ticket {
 	public String getNotes() {
 		String notesString = "";
 		for(int i = 0; i < notes.size(); i++) {
-			notesString = "-" + notes.get(i) + "\n";
+			notesString = notesString + "-" + notes.get(i) + "\n";
 		}
 		return notesString;
 	}
@@ -250,6 +287,11 @@ public class Ticket {
 	 *
 	 */
 	public String getPriority() {
+		
+		if(this.priority == null) {
+			return null;
+		}
+		
 		switch(this.priority) {
 		    case URGENT:
 		    	return P_URGENT;
@@ -273,6 +315,11 @@ public class Ticket {
 	 *
 	 */
 	public String getResolutionCode() {
+		
+		if(this.resolutionCode == null) {
+			return null;
+		}
+		
 		switch(this.resolutionCode) {
 		    case COMPLETED:
 		    	return Command.RC_COMPLETED;
@@ -334,6 +381,11 @@ public class Ticket {
 	 *
 	 */
 	public String getTicketTypeString() {
+		
+		if(this.ticketType == null) {
+			return null;
+		}
+		
 		switch(this.ticketType) {
 		
 		    case REQUEST:
@@ -352,6 +404,11 @@ public class Ticket {
 	 *
 	 */
 	private void setCaller(String caller) {
+		
+		if(caller == null || caller == "") {
+			throw new IllegalArgumentException();
+		}
+		
 		this.caller = caller;
 	}
 	
@@ -366,12 +423,14 @@ public class Ticket {
 		switch(cc) {
 		    case Command.CC_DUPLICATE:
 		    	this.cancellationCode = CancellationCode.DUPLICATE;
+		    	break;
 		    	
 		    case Command.CC_INAPPROPRIATE:
 		    	this.cancellationCode = CancellationCode.INAPPROPRIATE;
+		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException();
+		    	throw new IllegalArgumentException("Bad Cancellation Code");
 		}
 	}
 	
@@ -383,21 +442,26 @@ public class Ticket {
 		switch(category) {
 	        case C_INQUIRY:
 	    	    this.category = Category.INQUIRY;
+	    	    break;
 	    	
 	        case C_SOFTWARE:
 	    	    this.category = Category.SOFTWARE;
+	    	    break;
 	    	
 	        case C_HARDWARE:
 	    	    this.category = Category.HARDWARE;
+	    	    break;
 	    
 	        case C_NETWORK:
 	    	    this.category = Category.NETWORK;
+	    	    break;
 	    
 	        case C_DATABASE:
 	    	    this.category = Category.DATABASE;
+	    	    break;
 	    	
 	        default:
-	    	    throw new IllegalArgumentException();
+	    	    throw new IllegalArgumentException("Bad Category");
 	    }
 	}
 	
@@ -417,15 +481,18 @@ public class Ticket {
 		switch(feedback) {
 		    case Command.F_CALLER:
 		    	this.feedbackCode = FeedbackCode.AWAITING_CALLER;
+		    	break;
 		    	
 		    case Command.F_CHANGE:
 		    	this.feedbackCode = FeedbackCode.AWAITING_CHANGE;
+		    	break;
 		    	
 		    case Command.F_PROVIDER:
 		    	this.feedbackCode = FeedbackCode.AWAITING_PROVIDER;
+		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException();
+		    	throw new IllegalArgumentException("Bad owner");
 		    
 		}
 		
@@ -439,18 +506,22 @@ public class Ticket {
 		switch(priority) {
 		    case P_URGENT:
 		    	this.priority = Priority.URGENT;
+		    	break;
 		    	
 		    case P_HIGH:
 		    	this.priority = Priority.HIGH;
+		    	break;
 		    	
 		    case P_MEDIUM:
 		    	this.priority = Priority.MEDIUM;
+		    	break;
 		    	
 		    case P_LOW:
 		    	this.priority = Priority.LOW;
+		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException();
+		    	throw new IllegalArgumentException("Bad priority");
 		}
 	}
 	
@@ -463,24 +534,30 @@ public class Ticket {
 		switch(resolution) {
 		    case Command.RC_COMPLETED:
 		    	this.resolutionCode = ResolutionCode.COMPLETED;
+		    	break;
 		    	
 		    case Command.RC_NOT_COMPLETED:
 		    	this.resolutionCode = ResolutionCode.NOT_COMPLETED;
+		    	break;
 		    	
 		    case Command.RC_SOLVED:
 		    	this.resolutionCode = ResolutionCode.SOLVED;
+		    	break;
 		    	
 		    case Command.RC_NOT_SOLVED:
 		    	this.resolutionCode = ResolutionCode.NOT_SOLVED;
+		    	break;
 		    	
 		    case Command.RC_WORKAROUND:
 		    	this.resolutionCode = ResolutionCode.WORKAROUND;
+		    	break;
 		    	
 		    case Command.RC_CALLER_CLOSED:
 		    	this.resolutionCode = ResolutionCode.CALLER_CLOSED;
+		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException();
+		    	throw new IllegalArgumentException("Bad Resolution Code");
 		}
 	}
 	
@@ -492,24 +569,30 @@ public class Ticket {
 		switch(state) {
 		    case NEW_NAME:
 		    	this.state = this.newState;
+		    	break;
 		    	
 		    case WORKING_NAME:
 		    	this.state = this.workingState;
+		    	break;
 		    	
 		    case FEEDBACK_NAME:
 		    	this.state = this.feedbackState;
+		    	break;
 		    	
 		    case RESOLVED_NAME:
 		    	this.state = this.resolvedState;
+		    	break;
 		    	
 		    case CLOSED_NAME:
 		    	this.state = this.closedState;
+		    	break;
 		    	
 		    case CANCELED_NAME:
 		    	this.state = this.canceledState;
+		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException();
+		    	throw new IllegalArgumentException("Bad state");
 		}
 	}
 	
@@ -518,6 +601,11 @@ public class Ticket {
 	 *
 	 */
 	private void setSubject(String subject) {
+		
+		if(subject == null || subject == "") {
+			throw new IllegalArgumentException();
+		}
+		
 		this.subject = subject;
 	}
 	
@@ -529,12 +617,14 @@ public class Ticket {
 		switch(ticketType) {
 		    case TT_REQUEST:
 		    	this.ticketType = TicketType.REQUEST;
+		    	break;
 		    	
 		    case TT_INCIDENT:
 		    	this.ticketType = TicketType.INCIDENT;
+		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException();
+		    	throw new IllegalArgumentException("Bad ticket type");
 		}
 	}
 	
@@ -555,18 +645,5 @@ public class Ticket {
 	public void update(Command command) {
 		this.state.updateState(command);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

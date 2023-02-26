@@ -27,7 +27,7 @@ Comment all code | 1 | Requires having stubbed out classes and test classes | Kh
 
 Implement Command class | 1 | No dependencies | Ethan Winters | Feb 24 | Done!
 
-Implement Ticket class methods | 2 | Must implement command | Ethan Winters | Feb 24 | In Progress
+Implement Ticket class methods | 2 | Must implement command | Ethan Winters | Feb 24 | Done!
 
 Implement NewState | 1 | Must implement Ticket and Command | -- | -- | Not Started
 

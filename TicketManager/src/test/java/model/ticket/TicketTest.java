@@ -48,6 +48,7 @@ public class TicketTest {
 		} catch (Exception e) {
 			//If the setUp() has a problem the test should Assertions.fail.
 			Assertions.fail("TicketTest.setUp() - Creating Tickets for testing failed");
+			System.out.println(e.getMessage());
 		}
 		
 		String scenario = "TicketTest.testTicketConstruction() verifies that the internal state of the Ticket is correct after creating: \nticketA = new Ticket(TicketType, REQUEST, \"sesmith5\", Category.DATABASE, Priority.URGENT, \"Request\", \"a note\") \nticketB = new Ticket(TicketType.INCIDENT, \"jdyoung2\", Category.SOFTWARE, Priority.MEDIUM, \"Incident\", \"a note\")";
@@ -162,7 +163,7 @@ public class TicketTest {
 			Assertions.assertNull(ticket.getCancellationCode(), scenario + "Ticket.getCancellationCode() - incorrect cancellation code - should be null");
 			Assertions.assertEquals("-a note\n", ticket.getNotes(), scenario + "Ticket.getNotes() - incorrect notes contents");
 		} catch (IllegalArgumentException e) {
-			Assertions.fail(scenario + " should be constructed.  Instead an IllegalArgumentException was thrown.");
+			Assertions.fail(scenario + " should be constructed.  Instead an IllegalArgumentException was thrown. " + e.getMessage());
 		}
 		
 		
