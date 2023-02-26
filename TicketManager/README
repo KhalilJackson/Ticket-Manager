@@ -1,1 +1,50 @@
+Create the model.command package | 1 | Does not depend on anything. | Ethan Winters | Feb 20 | Done!
 
+Create the model.io package | 1 | Does not depend on anything. | Ethan Winters | Feb 20 | Done!
+
+Create the model.manager package | 1 | Does not depend on anything. | Ethan Winters | Feb 20 | Done!
+
+Create the model.ticket package | 1 | Does not depend on anything. | Ethan Winters | Feb 20 | Done!
+
+Create and stub out the model.command package classes (Command.java) | 1 | Stubbed out class. | Ethan Winters | Feb 20 | Done!
+
+Create and stub out the model.io package classes (TicketReader.java and TicketWriter.java) | 1 | Stubbed out class. | Khalil Jackson | Feb 20 | Done!
+
+Create and stub out the model.manager package classes (TicketList.java and TicketManager.java) | 1 | Stubbed out class. | Khalil Jackson | Feb 20 | Done!
+
+Create and stub out the model.ticket package classes (CanceledState.java, ClosedState.java, FeedbackState.java, NewState.java, ResolvedState.java, Ticket.java, TicketState.java, WorkingState.java) | 2 | Stubbed out class. | Ethan winters and Khalil Jackson | Feb 20 | Done!
+
+Create test classes for each class of the code | 1 | No dependencies | Ethan Winters | Feb 21 | Done!
+
+Copy provided test code into each test class | 1 | Requires creating test classes | Ethan Winters | Feb 21 | Done!
+
+Stub out TicketReaderTest and TicketWriterTest classes | 1 | Requires having created these classes | Ethan Winters | Feb 23 | Done!
+
+Comment all code | 1 | Requires having stubbed out classes and test classes | Khalil Jackson | Feb 23 | Done!
+
+--------------------------------------------------------------------------------------------------------------------------------------
+[PROCESS POINTS MILESTONE 2]
+
+Implement Command class | 1 | No dependencies | Ethan Winters | Feb 24 | Done!
+
+Implement Ticket class methods | 2 | Must implement command | Ethan Winters | Feb 24 | In Progress
+
+Implement NewState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement WorkingState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement FeedbackState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement ResolvedState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement ClosedState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement CanceledState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+
+Implement TicketReader | 2 | Must implement Ticket class | -- | -- | Not Started
+
+Implement TicketWriter | 2 | Must implement Ticket class | -- | -- | Not Started
+
+Implement TicketList | 2 | Must Implement Ticket and IO classes | -- | -- | Not Started
+
+Implement TicketManager | 2 | Must Implement Ticket and IO classes | -- | -- | Not Started 
