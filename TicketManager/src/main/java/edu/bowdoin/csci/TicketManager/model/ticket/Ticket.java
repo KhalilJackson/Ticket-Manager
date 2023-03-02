@@ -7,13 +7,6 @@ import edu.bowdoin.csci.TicketManager.model.command.Command.ResolutionCode;
 import edu.bowdoin.csci.TicketManager.model.command.Command.FeedbackCode;
 import edu.bowdoin.csci.TicketManager.model.command.Command.CancellationCode;
 
-import edu.bowdoin.csci.TicketManager.model.ticket.NewState;
-import edu.bowdoin.csci.TicketManager.model.ticket.WorkingState;
-import edu.bowdoin.csci.TicketManager.model.ticket.ResolvedState;
-import edu.bowdoin.csci.TicketManager.model.ticket.FeedbackState;
-import edu.bowdoin.csci.TicketManager.model.ticket.ClosedState;
-import edu.bowdoin.csci.TicketManager.model.ticket.CanceledState;
-
 public class Ticket {
 	
 	/**
@@ -69,7 +62,7 @@ public class Ticket {
 	public static final String CLOSED_NAME = "Closed";
 	public static final String CANCELED_NAME = "Canceled";
 	
-	private static int counter;
+	private static int counter = 1;
 	private int ticketId;
 	private String subject;
 	private String caller;
@@ -104,13 +97,13 @@ public class Ticket {
 	 * Sets counter to count.
 	 *
 	 */
-	static public void setCounter(int count) {
+	static public void setCounter(int ticketid) {
 		
-		if(count < 1) {
+		if(ticketid < 1) {
 			throw new IllegalArgumentException("Ticket id must be a value greater than 0.");
 		}
 		
-		counter = count;
+		counter = ticketid;
 	}
 	
 	/**
@@ -648,6 +641,192 @@ public class Ticket {
 	 */
 	public void update(Command command) {
 		this.state.updateState(command);
+	}
+	
+	
+	//Ticket state classes for FSM:
+
+	public interface TicketState {
+		
+		/**
+		 * updates the state based on the given command
+		 *
+		 */
+		public void updateState(Command command);
+		
+		/**
+		 * returns the name of the state
+		 * @return
+		 */
+		public String getStateName();
+	}
+	
+	public class NewState implements TicketState{
+		
+		/**
+		 * Constructor for the NewState class
+		 *
+		 */
+		NewState(){
+			
+		}
+		
+		/**
+		 * updates the state based on the given command
+		 *
+		 */
+		public void updateState(Command command) {
+			
+		}
+		
+		/**
+		 * returns the name of the state
+		 *
+		 */
+		public String getStateName() {
+			return "New";
+		}
+
+	}
+	
+	public class WorkingState implements TicketState{
+		
+		/**
+		 * Constructor for the WorkingState class
+		 *
+		 */
+		WorkingState(){
+			
+		}
+		
+		/**
+		 * updates the state based on the given command
+		 *
+		 */
+		public void updateState(Command command) {
+			
+		}
+		
+		/**
+		 * returns the name of the state
+		 *
+		 */
+		public String getStateName() {
+			return "Working";
+		}
+
+	}
+
+	public class FeedbackState implements TicketState{
+		
+		/**
+		 * Constructor for the FeedbackState class
+		 *
+		 */
+		FeedbackState(){
+			
+		}
+		
+		/**
+		 * updates the state based on the given command
+		 *
+		 */
+		public void updateState(Command command) {
+			
+		}
+		
+		/**
+		 * returns the name of the state
+		 *
+		 */
+		public String getStateName() {
+			return "Feedback";
+		}
+
+	}
+	
+	public class ResolvedState implements TicketState{
+
+		/**
+		 * Constructor for the ResolvedState class
+		 *
+		 */
+		ResolvedState(){
+			
+		}
+		
+		/**
+		 * updates the state based on the given command
+		 *
+		 */
+		public void updateState(Command command) {
+			
+		}
+		
+		/**
+		 * returns the name of the state
+		 *
+		 */
+		public String getStateName() {
+			return "Resolved";
+		}
+
+	}
+
+	public class ClosedState implements TicketState{
+		
+		/**
+		 * Constructor for the ClosedState class
+		 *
+		 */
+		ClosedState(){
+			
+		}
+		
+		/**
+		 * updates the state based on the given command
+		 *
+		 */
+		public void updateState(Command command) {
+			
+		}
+		
+		/**
+		 * returns the name of the state
+		 *
+		 */
+		public String getStateName() {
+			return "Closed";
+		}
+		
+	}
+	
+	public class CanceledState implements TicketState{
+		
+		/**
+		 * Constructor for the canceled state class
+		 *
+		 */
+		CanceledState(){
+			
+		}
+		
+		/**
+		 * changes the state based on the given command
+		 *
+		 */
+		public void updateState(Command command) {
+			
+		}
+		
+		/**
+		 * returns the name of the state
+		 *
+		 */
+		public String getStateName() {
+			return "Canceled";
+		}
+
 	}
 	
 }
