@@ -84,6 +84,7 @@ public class TicketNewStateTest {
 			e.printStackTrace();
 			Assertions.fail(scenario + " - unexpected exception thrown - likely when creating a Command or updating the state");
 		}
+		
 	}
 	
 	
