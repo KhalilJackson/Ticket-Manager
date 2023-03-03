@@ -946,7 +946,7 @@ public class Ticket {
 		 *
 		 */
 		public String getStateName() {
-			return "Closed";
+			return "Close";
 		}
 		
 	}
