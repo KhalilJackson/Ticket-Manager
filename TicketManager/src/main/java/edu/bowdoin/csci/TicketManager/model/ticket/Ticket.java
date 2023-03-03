@@ -674,20 +674,30 @@ public class Ticket {
 		public void updateState(Command command) {
 			switch(command.getCommand()) {
 			    case PROCESS:
+			    	if(command.getNote() != null) {
+			    		notes.add(command.getNote());
+			    	}
+			    	
+			    	owner = command.getOwnerId();
 			    	state = workingState;
 			    	break;
 			    	
 			    case CANCEL:
 			    	if(command.getCancellationCode() == null) {
-			    		throw new IllegalArgumentException("Cancellation code required to cancel ticket.");
+			    		throw new UnsupportedOperationException("Cancellation code required to cancel ticket.");
 			    	}
+			    	
+			    	if(command.getNote() != null) {
+			    		notes.add(command.getNote());
+			    	}
+					
 			    	
 			    	cancellationCode = command.getCancellationCode();
 			    	state = canceledState;
 			    	break;
 			    	
 			    default:
-			    	throw new IllegalArgumentException("Cannot transition from New state to requested state.");
+			    	throw new UnsupportedOperationException("Cannot transition from New state to requested state.");
 			}
 		}
 		
@@ -719,8 +729,13 @@ public class Ticket {
 			switch(command.getCommand()) {
 			   case CANCEL:
 				   if(command.getCancellationCode() == null) {
-					   throw new IllegalArgumentException("Cancellation code required to cancel ticket.");
+					   throw new UnsupportedOperationException("Cancellation code required to cancel ticket.");
 				   }
+				   
+				   if(command.getNote() != null) {
+			    		notes.add(command.getNote());
+				   }
+					
 				   
 				   cancellationCode = command.getCancellationCode();
 				   state = canceledState;
@@ -728,7 +743,11 @@ public class Ticket {
 				   
 			   case FEEDBACK:
 				   if(command.getFeedbackCode() == null) {
-					   throw new IllegalArgumentException("Feedback code required to move to feedback state.");
+					   throw new UnsupportedOperationException("Feedback code required to move to feedback state.");
+				   }
+				   
+				   if(command.getNote() != null) {
+			    		notes.add(command.getNote());
 				   }
 				   
 				   feedbackCode = command.getFeedbackCode();
@@ -737,15 +756,19 @@ public class Ticket {
 				   
 			   case RESOLVE:
 				   if(command.getResolutionCode() == null) {
-					   throw new IllegalArgumentException("Resolution code required to move to resolved state.");
+					   throw new UnsupportedOperationException("Resolution code required to move to resolved state.");
 				   }
 				   
+				   if(command.getNote() != null) {
+			    		notes.add(command.getNote());
+				   }
+					
 				   resolutionCode = command.getResolutionCode();
 				   state = resolvedState;
 				   break;
 				   
 			   default:
-				   throw new IllegalArgumentException("Cannot transition from Working state to requested state.");
+				   throw new UnsupportedOperationException("Cannot transition from Working state to requested state.");
 			}
 		}
 		
@@ -777,20 +800,34 @@ public class Ticket {
 			
 			switch(command.getCommand()) {
 			    case PROCESS:
+			    	if(command.getNote() != null) {
+			    		notes.add(command.getNote());
+			    	}
+					
+			    	owner = command.getOwnerId();
 			    	state = workingState;
 			    	break;
+			    	
 			    case RESOLVE:
 			    	if(command.getResolutionCode() == null) {
-			    		throw new IllegalArgumentException("Resolution code required to move to resolved state.");
+			    		throw new UnsupportedOperationException("Resolution code required to move to resolved state.");
 			    	}
 			    	
+			    	if(command.getNote() != null) {
+			    		notes.add(command.getNote());
+			    	}
+					
 			    	resolutionCode = command.getResolutionCode();
 			    	state = resolvedState;
 			    	break;
 			    	
 			    case CANCEL:
 			    	if(command.getCancellationCode() == null) {
-			    		throw new IllegalArgumentException("Cancellation code required to cancel ticket.");
+			    		throw new UnsupportedOperationException("Cancellation code required to cancel ticket.");
+			    	}
+			    	
+			    	if(command.getNote() != null) {
+			    		notes.add(command.getNote());
 			    	}
 			    	
 			    	cancellationCode = command.getCancellationCode();
@@ -798,7 +835,7 @@ public class Ticket {
 			    	break;
 			    	
 			    default:
-			    	throw new IllegalArgumentException("Cannot transition from Feedback state to requested state.");
+			    	throw new UnsupportedOperationException("Cannot transition from Feedback state to requested state.");
 			}
 		}
 		
@@ -833,15 +870,29 @@ public class Ticket {
 				if (command.getFeedbackCode() == null) {
 					throw new UnsupportedOperationException("Feedback code required to Feedback state");
 				}
+				
+				if(command.getNote() != null) {
+		    		notes.add(command.getNote());
+		    	}
+				
 				resolutionCode = null;
 				feedbackCode = command.getFeedbackCode();
 				state = feedbackState;
 				break;
 			case PROCESS:
+				if(command.getNote() != null) {
+		    		notes.add(command.getNote());
+		    	}
+		    	
+		    	owner = command.getOwnerId();
 				resolutionCode = null;
 				state = workingState;
 				break;
 			case CONFIRM:
+				if(command.getNote() != null) {
+		    		notes.add(command.getNote());
+		    	}
+				
 				state = closedState;
 			default:
 				throw new UnsupportedOperationException();
@@ -877,6 +928,11 @@ public class Ticket {
 			
 			switch(command.getCommand()) {
 			case REOPEN:
+				if(command.getNote() != null) {
+		    		notes.add(command.getNote());
+		    	}
+		    	
+		    	owner = command.getOwnerId();
 				state = workingState;
 				break;
 			default:
