@@ -933,7 +933,7 @@ public class Ticket {
 		    		notes.add(command.getNote());
 		    	}
 		    	
-		    	owner = command.getOwnerId();
+				resolutionCode = null;
 				state = workingState;
 				break;
 			default:
