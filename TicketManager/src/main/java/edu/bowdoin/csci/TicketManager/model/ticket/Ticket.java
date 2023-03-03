@@ -879,12 +879,11 @@ public class Ticket {
 				feedbackCode = command.getFeedbackCode();
 				state = feedbackState;
 				break;
-			case PROCESS:
+			case REOPEN:
 				if(command.getNote() != null) {
 		    		notes.add(command.getNote());
 		    	}
 		    	
-		    	owner = command.getOwnerId();
 				resolutionCode = null;
 				state = workingState;
 				break;
@@ -894,6 +893,7 @@ public class Ticket {
 		    	}
 				
 				state = closedState;
+				break;
 			default:
 				throw new UnsupportedOperationException();
 			}

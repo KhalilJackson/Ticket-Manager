@@ -11,7 +11,7 @@ public class Command {
 
 		DUPLICATE,
 		INAPPROPRIATE;
-
+		
 	}
 	
 	/**
