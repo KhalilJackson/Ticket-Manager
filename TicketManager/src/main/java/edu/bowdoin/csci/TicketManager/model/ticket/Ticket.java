@@ -140,11 +140,7 @@ public class Ticket {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Constructs ticket using ID, state, type, subject, caller, category, priority, and owner.
-=======
 	 * Constructs ticket using type, subject, caller, category, priority, and owner.
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public Ticket(TicketType type, String subject, String caller, Category category, Priority priority, String notes) {
@@ -676,7 +672,23 @@ public class Ticket {
 		 *
 		 */
 		public void updateState(Command command) {
-			
+			switch(command.getCommand()) {
+			    case PROCESS:
+			    	state = workingState;
+			    	break;
+			    	
+			    case CANCEL:
+			    	if(command.getCancellationCode() == null) {
+			    		throw new IllegalArgumentException("Cancellation code required to cancel ticket.");
+			    	}
+			    	
+			    	cancellationCode = command.getCancellationCode();
+			    	state = canceledState;
+			    	break;
+			    	
+			    default:
+			    	throw new IllegalArgumentException("Cannot transition from New state to requested state.");
+			}
 		}
 		
 		/**
@@ -704,7 +716,37 @@ public class Ticket {
 		 *
 		 */
 		public void updateState(Command command) {
-			
+			switch(command.getCommand()) {
+			   case CANCEL:
+				   if(command.getCancellationCode() == null) {
+					   throw new IllegalArgumentException("Cancellation code required to cancel ticket.");
+				   }
+				   
+				   cancellationCode = command.getCancellationCode();
+				   state = canceledState;
+				   break;
+				   
+			   case FEEDBACK:
+				   if(command.getFeedbackCode() == null) {
+					   throw new IllegalArgumentException("Feedback code required to move to feedback state.");
+				   }
+				   
+				   feedbackCode = command.getFeedbackCode();
+				   state = feedbackState;
+				   break;
+				   
+			   case RESOLVE:
+				   if(command.getResolutionCode() == null) {
+					   throw new IllegalArgumentException("Resolution code required to move to resolved state.");
+				   }
+				   
+				   resolutionCode = command.getResolutionCode();
+				   state = resolvedState;
+				   break;
+				   
+			   default:
+				   throw new IllegalArgumentException("Cannot transition from Working state to requested state.");
+			}
 		}
 		
 		/**
@@ -733,6 +775,31 @@ public class Ticket {
 		 */
 		public void updateState(Command command) {
 			
+			switch(command.getCommand()) {
+			    case PROCESS:
+			    	state = workingState;
+			    	break;
+			    case RESOLVE:
+			    	if(command.getResolutionCode() == null) {
+			    		throw new IllegalArgumentException("Resolution code required to move to resolved state.");
+			    	}
+			    	
+			    	resolutionCode = command.getResolutionCode();
+			    	state = resolvedState;
+			    	break;
+			    	
+			    case CANCEL:
+			    	if(command.getCancellationCode() == null) {
+			    		throw new IllegalArgumentException("Cancellation code required to cancel ticket.");
+			    	}
+			    	
+			    	cancellationCode = command.getCancellationCode();
+			    	state = canceledState;
+			    	break;
+			    	
+			    default:
+			    	throw new IllegalArgumentException("Cannot transition from Feedback state to requested state.");
+			}
 		}
 		
 		/**

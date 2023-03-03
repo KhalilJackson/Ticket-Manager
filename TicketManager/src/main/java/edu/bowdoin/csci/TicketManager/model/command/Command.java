@@ -4,11 +4,7 @@ package edu.bowdoin.csci.TicketManager.model.command;
 public class Command {
 	
 	/**
-<<<<<<< HEAD
-	 * Enumeration class of cancellation code constants.
-=======
 	 * Enumeration class of cancellation code constants
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public enum CancellationCode {
@@ -19,11 +15,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Enumeration class of command value constants.
-=======
 	 * Enumeration class of command value constants
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public enum CommandValue {
@@ -36,11 +28,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Enumeration class of feedback code constants.
-=======
 	 * Enumeration class of feedback code constants
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public enum FeedbackCode {
@@ -51,11 +39,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Enumeration class of resolution code constants.
-=======
 	 * Enumeration class of resolution code constants
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public enum ResolutionCode {
@@ -92,12 +76,8 @@ public class Command {
 	
 	
 	/**
-<<<<<<< HEAD
 	 * Constructor creates and instance of the Command class using CommandValue, ResolutionCode, FeedbackCode, 
 	 * CancellationCode, and two Strings.
-=======
-	 * Command class constructor
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public Command(CommandValue command, String owner, FeedbackCode feedback_code, ResolutionCode resolution_code, CancellationCode cancellation_code, String note) {
@@ -150,11 +130,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Gets the command and takes.
-=======
 	 * Gets the command value
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public CommandValue getCommand() {
@@ -164,11 +140,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Gets the owner ID.
-=======
 	 * Gets the owner id
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public String getOwnerId() {
@@ -177,11 +149,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Gets resolution code.
-=======
 	 * gets the resolution code
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public ResolutionCode getResolutionCode() {
@@ -190,11 +158,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Gets note.
-=======
 	 * Gets the ticket notes
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public String getNote() {
@@ -203,11 +167,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Gets feedback code.
-=======
 	 * Gets the feedback code
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public FeedbackCode getFeedbackCode() {
@@ -216,11 +176,7 @@ public class Command {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Gets cancellation code.
-=======
 	 * Gets the cancellation code
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public CancellationCode getCancellationCode() {
