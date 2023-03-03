@@ -92,6 +92,7 @@ public class Command {
 		if(command.equals(CommandValue.PROCESS) && (owner == null || owner.equals(""))) {
 			throw new IllegalArgumentException();
 		}
+		
 		this.ownerId = owner;
 		
 		//note cannot be empty or null if CommandValue is FEEDBACK, CONFIRM, or REOPEN

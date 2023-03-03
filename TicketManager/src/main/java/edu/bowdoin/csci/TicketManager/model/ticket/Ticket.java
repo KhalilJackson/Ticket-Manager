@@ -799,12 +799,12 @@ public class Ticket {
 		public void updateState(Command command) {
 			
 			switch(command.getCommand()) {
-			    case PROCESS:
+			    case REOPEN:
 			    	if(command.getNote() != null) {
 			    		notes.add(command.getNote());
 			    	}
 					
-			    	owner = command.getOwnerId();
+			    	feedbackCode = null;
 			    	state = workingState;
 			    	break;
 			    	
@@ -817,6 +817,7 @@ public class Ticket {
 			    		notes.add(command.getNote());
 			    	}
 					
+			    	feedbackCode = null;
 			    	resolutionCode = command.getResolutionCode();
 			    	state = resolvedState;
 			    	break;
