@@ -831,7 +831,7 @@ public class Ticket {
 			switch(command.getCommand()) {
 			case FEEDBACK:
 				if (command.getFeedbackCode() == null) {
-					throw new IllegalArgumentException("Feedback code required to Feedback state");
+					throw new UnsupportedOperationException("Feedback code required to Feedback state");
 				}
 				resolutionCode = null;
 				feedbackCode = command.getFeedbackCode();
@@ -844,7 +844,7 @@ public class Ticket {
 			case CONFIRM:
 				state = closedState;
 			default:
-				throw new IllegalArgumentException();
+				throw new UnsupportedOperationException();
 			}
 			
 		}
@@ -880,7 +880,7 @@ public class Ticket {
 				state = workingState;
 				break;
 			default:
-				throw new IllegalArgumentException();
+				throw new UnsupportedOperationException();
 			}
 			
 		}
@@ -911,7 +911,7 @@ public class Ticket {
 		 */
 		public void updateState(Command command) {
 			
-			throw new IllegalArgumentException("Cannot udpate state when ticket is has been canceled.");
+			throw new UnsupportedOperationException("Cannot udpate state when ticket is has been canceled.");
 			
 		}
 		
