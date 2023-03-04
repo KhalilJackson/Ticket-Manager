@@ -166,8 +166,77 @@ public class TicketTest {
 			Assertions.fail(scenario + " should be constructed.  Instead an IllegalArgumentException was thrown. " + e.getMessage());
 		}
 		
+	}
+	
+	/**
+	 * Test setting category.
+	 */
+	@Test
+	public void testSetCategory() {
+		
+		ArrayList<String> notes = new ArrayList<String>();
+		notes.add("a note");		
+		
+		Ticket ticket = null;
+		String scenario = null;
+
+		//Inquiry category
+		try {
+			ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Inquiry", "Urgent", "", null, notes);
+			Assertions.assertEquals("Inquiry", ticket.getCategory(), scenario + "Ticket.getCategory() - incorrect category");
+		} catch (IllegalArgumentException e) {
+			
+		}
+		
+		
+		//Software category
+		try {
+			ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Software", "Urgent", "", null, notes);
+			Assertions.assertEquals("Software", ticket.getCategory(), scenario + "Ticket.getCategory() - incorrect category");
+			
+		} catch (IllegalArgumentException e) {
+			
+		}
+		
+		//Hardware category
+		try {
+			ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "", null, notes);
+			Assertions.assertEquals("Hardware", ticket.getCategory(), scenario + "Ticket.getCategory() - incorrect category");
+			
+		} catch (IllegalArgumentException e) {
+			
+		}
+		
+		//Network category
+		try {
+			ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Network", "Urgent", "", null, notes);
+			Assertions.assertEquals("Network", ticket.getCategory(), scenario + "Ticket.getCategory() - incorrect category");
+			
+		} catch (IllegalArgumentException e) {
+			
+		}
+		
+		//Database category
+		try {
+			ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Database", "Urgent", "", null, notes);
+			Assertions.assertEquals("Database", ticket.getCategory(), scenario + "Ticket.getCategory() - incorrect category");
+
+		} catch (IllegalArgumentException e) {
+			
+		}
+		
+		//Bad inquiry category
+		try { 
+			ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Olive Green", "Urgent", "", null, notes);
+			Assertions.fail("Olive Green not a valid category.");
+		} catch (IllegalArgumentException e) {
+			
+		}
 		
 	}
+	
+	
+	
 	
 	/**
 	 * Test setting counter
