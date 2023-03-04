@@ -29,17 +29,23 @@ Implement Command class | 1 | No dependencies | Ethan Winters | Feb 24 | Done!
 
 Implement Ticket class methods | 2 | Must implement command | Ethan Winters | Feb 24 | Done!
 
-Implement NewState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+Implement NewState | 1 | Must implement Ticket and Command | Ethan Winters | Mar 1 | Done!
 
-Implement WorkingState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+Implement WorkingState | 1 | Must implement Ticket and Command | Ethan Winters | Mar 1 | Done!
 
-Implement FeedbackState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+Implement FeedbackState | 1 | Must implement Ticket and Command | Ethan Winters | Mar 1 | Done!
 
-Implement ResolvedState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+Implement ResolvedState | 1 | Must implement Ticket and Command | Khalil Jackson | Mar 1 | Done!
 
-Implement ClosedState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+Implement ClosedState | 1 | Must implement Ticket and Command | Khalil Jackson | Mar 1 | Done!
 
-Implement CanceledState | 1 | Must implement Ticket and Command | -- | -- | Not Started
+Implement CanceledState | 1 | Must implement Ticket and Command | Khalil Jackson | Mar 1 | Done!
+
+Testing TicketTests | 2 | Must test Ticket.java methods | Ethan Winters & Khalil Jackson | Mar 1 | Done!
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+[PROCESS POINTS MILESTONE 3]
 
 Implement TicketReader | 2 | Must implement Ticket class | -- | -- | Not Started
 
