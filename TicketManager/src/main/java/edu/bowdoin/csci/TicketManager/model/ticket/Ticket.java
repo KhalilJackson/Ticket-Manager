@@ -399,7 +399,7 @@ public class Ticket {
 	private void setCaller(String caller) {
 		
 		if(caller == null || caller == "") {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Ticket caller cannot be null or empty.");
 		}
 		
 		this.caller = caller;
@@ -410,6 +410,10 @@ public class Ticket {
 	 *
 	 */
 	private void setCancellationCode(String cc) {
+		if(cc == null) {
+			this.cancellationCode = null;
+			return;
+		}
 		
 		//A cancellation code should either be "Duplicate" or "Inappropriate." 
 		//Any other input will return an error
@@ -423,7 +427,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Bad Cancellation Code");
+		    	throw new IllegalArgumentException("Requested cancellation code does not exist.");
 		}
 	}
 	
@@ -432,6 +436,10 @@ public class Ticket {
 	 *
 	 */
 	private void setCategory(String category) {
+		if(category == null) {
+			throw new IllegalArgumentException("Ticket category cannot be null.");
+		}
+		
 		switch(category) {
 	        case C_INQUIRY:
 	    	    this.category = Category.INQUIRY;
@@ -454,7 +462,7 @@ public class Ticket {
 	    	    break;
 	    	
 	        default:
-	    	    throw new IllegalArgumentException("Bad Category");
+	    	    throw new IllegalArgumentException("Requested ticket category does not exist.");
 	    }
 	}
 	
@@ -471,6 +479,11 @@ public class Ticket {
 	 *
 	 */
 	private void setFeedbackCode(String feedback) {
+		if(feedback == null) {
+			this.feedbackCode = null;
+			return;
+		}
+		
 		switch(feedback) {
 		    case Command.F_CALLER:
 		    	this.feedbackCode = FeedbackCode.AWAITING_CALLER;
@@ -485,7 +498,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Bad owner");
+		    	throw new IllegalArgumentException("Requested feedback code does not exist.");
 		    
 		}
 		
@@ -496,6 +509,10 @@ public class Ticket {
 	 *
 	 */
 	private void setPriority(String priority) {
+		if(priority == null) {
+			throw new IllegalArgumentException("Ticket priority cannot be null.");
+		}
+		
 		switch(priority) {
 		    case P_URGENT:
 		    	this.priority = Priority.URGENT;
@@ -514,7 +531,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Bad priority");
+		    	throw new IllegalArgumentException("Requested ticket priority does not exist.");
 		}
 	}
 	
@@ -523,6 +540,11 @@ public class Ticket {
 	 *
 	 */
 	private void setResolutionCode(String resolution) {
+		
+		if(resolution == null) {
+			this.resolutionCode = null;
+			return;
+		}
 		
 		switch(resolution) {
 		    case Command.RC_COMPLETED:
@@ -550,7 +572,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Bad Resolution Code");
+		    	throw new IllegalArgumentException("Requested resolution code does not exist.");
 		}
 	}
 	
@@ -559,6 +581,10 @@ public class Ticket {
 	 *
 	 */
 	private void setState(String state) {
+		if(state == null) {
+			throw new IllegalArgumentException("Ticket state cannot be set to null.");
+		}
+		
 		switch(state) {
 		    case NEW_NAME:
 		    	this.state = this.newState;
@@ -585,7 +611,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Bad state");
+		    	throw new IllegalArgumentException("Requested ticket state does not exist.");
 		}
 	}
 	
@@ -596,7 +622,7 @@ public class Ticket {
 	private void setSubject(String subject) {
 		
 		if(subject == null || subject == "") {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Ticket subject cannot be null or empty.");
 		}
 		
 		this.subject = subject;
@@ -607,6 +633,10 @@ public class Ticket {
 	 *
 	 */
 	private void setTicketType(String ticketType) {
+		if(ticketType == null) {
+			throw new IllegalArgumentException("Ticket type cannot be null.");
+		}
+		
 		switch(ticketType) {
 		    case TT_REQUEST:
 		    	this.ticketType = TicketType.REQUEST;
@@ -617,7 +647,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Bad ticket type");
+		    	throw new IllegalArgumentException("Ticket type must be either \"Request\" or \"Incident\".");
 		}
 	}
 	

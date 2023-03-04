@@ -1,6 +1,6 @@
 package model.ticket;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -180,6 +180,40 @@ public class TicketTest {
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals("Ticket id must be a value greater than 0.", e.getMessage());
 		}
+	}
+	
+	/**
+	 * Tests ticket.setCancellationCode() method
+	 */
+	@Test
+	public void testSetCancellationCode() {
+		
+		ArrayList<String> codesDuplicate = new ArrayList<String>();
+		codesDuplicate.add(null);
+		codesDuplicate.add(null);
+		codesDuplicate.add(Command.CC_DUPLICATE);
+		
+		ArrayList<String> codesInappropriate = new ArrayList<String>();
+		codesInappropriate.add(null);
+		codesInappropriate.add(null);
+		codesInappropriate.add(Command.CC_INAPPROPRIATE);
+		
+		ArrayList<String> codesNull = new ArrayList<String>();
+		codesNull.add(null);
+		codesNull.add(null);
+		codesNull.add(null);
+		
+		try {
+			Ticket ticketDuplicate = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesDuplicate, null);
+			Ticket ticketInappropriate = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesInappropriate, null);
+			Ticket ticketNull = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesNull, null);
+			
+			Assertions.assertEquals(Command.CC_DUPLICATE, ticketDuplicate.getCancellationCode(), "testSetCancellationCode() - tried to make cancellation code \"Duplicate\", but failed.");
+			Assertions.assertEquals(Command.CC_INAPPROPRIATE, ticketInappropriate.getCancellationCode(), "testSetCancellationCode() - tried to make cancellation code \"Inappropriate\", but failed.");
+			Assertions.assertNull(ticketNull.getCancellationCode(), "testSetCancellationCode() - tried to make cancellation code null, but failed.");
+		} catch(IllegalArgumentException e) {
+			Assertions.fail("testSetCancellationCode() - an unexpected IllegalArgumentException was thrown.");
+		}	
 	}
 	
 	/**
