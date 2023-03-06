@@ -599,7 +599,7 @@ public class TicketTest {
 	 */
 	@Test
 	public void testToString() {
-		
+		Ticket ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", null, null);
 	}
 	
 	/**
