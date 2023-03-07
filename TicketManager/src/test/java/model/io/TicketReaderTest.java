@@ -1,6 +1,7 @@
 package model.io;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -120,6 +121,86 @@ public class TicketReaderTest {
 	 */
 	@Test
 	public void testReadTicketFileOutput() {
+		
+		ArrayList<Ticket> expected_tickets = new ArrayList<Ticket>();
+		ArrayList<String> notes = new ArrayList<String>();
+		ArrayList<String> codes = new ArrayList<String>();
+		
+		//Test on 'act_ticket_new.txt' file
+		try {
+			
+			ArrayList<Ticket> act_ticket_new = reader.readTicketFile("../TicketManager/test-files/act_ticket_new.txt");
+			
+			notes.add("Install latest Jenkins system on 216 VMs");
+			expected_tickets.add(new Ticket(1, "New", "Request", "Jenkins Installation", "sesmith5", "Software", "Urgent", "", null, notes));
+			
+			Assertions.assertEquals(expected_tickets, act_ticket_new, "TicketReaderTest.testReadTicketFileOutput() - Tried to make tickets from 'act_ticket_new.txt' file, but failed.");
+			
+			notes.clear();
+			expected_tickets.clear();
+		} catch(IllegalArgumentException e) {
+			
+		}
+			
+			
+		//Test on 'act_ticket.txt' file
+		try {
+			ArrayList<Ticket> act_ticket = reader.readTicketFile("../TicketManager/test-files/act_ticket.txt");
+			
+			notes.add("note");
+			expected_tickets.add(new Ticket(1, "New", "Incident", "Subject", "Caller", "Network", "Low", "", null, notes));
+			
+			Assertions.assertEquals(expected_tickets, act_ticket, "TicketReaderTest.testReadTicketFileOutput() - Tried to make tickets from 'act_ticket.txt' file, but failed.");
+			
+			notes.clear();
+			expected_tickets.clear();
+			
+		} catch(IllegalArgumentException e) {
+			
+		}
+			
+		//Test on 'act_tickets.txt' file
+		try {
+			ArrayList<Ticket> act_tickets = reader.readTicketFile("../TicketManager/test-files/act_tickets.txt");
+			
+			notes.add("a note");
+			notes.add("a note with \na new line");
+			notes.add("a third note");
+			
+			codes.add("Not Completed");
+			codes.add(null);
+			codes.add(null);
+			
+			expected_tickets.add(new Ticket(3, "Closed", "Request", "Subject line", "caller", "Inquiry", "Medium", "owner", codes, notes));
+			
+			notes.clear();
+			codes.clear();
+			
+			notes.add("a note 2");
+			notes.add("a second note");
+			notes.add("a note with \na new line");
+			
+			codes.add(null);
+			codes.add(null);
+			codes.add("Duplicate");
+			
+			expected_tickets.add(new Ticket(6, "Canceled", "Incident", "Subject line", "caller", "Software", "Low", "owner", codes, notes));
+			
+			notes.clear();
+			codes.clear();
+			
+			notes.add("a note 3");
+			
+			expected_tickets.add(new Ticket(7, "New", "Incident", "Subject line", "caller", "Software", "Low", "owner", null, notes));
+			
+			Assertions.assertEquals(expected_tickets, act_tickets, "TicketReaderTest.testReadTicketFileOutput() - Tried to make tickets from 'act_ticket.txt' file, but failed.");
+			
+			notes.clear();
+			expected_tickets.clear();
+			
+		} catch(IllegalArgumentException e) {
+			
+		}
 		
 	}
 	
