@@ -12,7 +12,7 @@ public class TicketList {
 	
 	
 	
-	public static List<Ticket> ticketsList = new ArrayList<Ticket>();
+	public static List<Ticket> ticketList = new ArrayList<Ticket>();
 	
 	
 	/**
@@ -28,18 +28,15 @@ public class TicketList {
 	}
 	
 	/**
-<<<<<<< HEAD
 	 * Adds ticket to ticket list.
-=======
 	 * Creates a ticket given the input parameters and adds it to the ticket list
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public int addTicket(TicketType type, String thing1, String thing2, Category category, Priority priority, String thing3) {
 		
 		Ticket newTicket = new Ticket(type, thing1, thing2, category, priority, thing3);
 		
-		ticketsList.add(newTicket);
+		ticketList.add(newTicket);
 		return 0;
 	}
 	
@@ -55,7 +52,7 @@ public class TicketList {
 		
 		if (tickets != null) {
 			
-			ticketsList.addAll(tickets);
+			ticketList.addAll(tickets);
 		}
 		
 	}
@@ -69,7 +66,7 @@ public class TicketList {
 	 *
 	 */
 	public List<Ticket> getTickets(){
-		return ticketsList;
+		return ticketList;
 	}
 	
 	/**
@@ -84,7 +81,7 @@ public class TicketList {
 		
 		List<Ticket> ticketsOfType = new ArrayList<Ticket>();
 		
-		for (Ticket ticket: ticketsList) {
+		for (Ticket ticket: ticketList) {
 			
 			if (ticket.getTicketType() == type) {
 				
@@ -106,7 +103,7 @@ public class TicketList {
 	 */
 	public Ticket getTicketById(int id) {
 		
-		for (Ticket ticket: ticketsList) {
+		for (Ticket ticket: ticketList) {
 		
 			if (ticket.getTicketId() == id) {
 				return ticket;
@@ -142,10 +139,10 @@ public class TicketList {
 		
 		if ((id > 0)) {
 			
-			for (Ticket ticket: ticketsList) {
+			for (Ticket ticket: ticketList) {
 				
 				if (ticket.getTicketId() == id) {
-					ticketsList.remove(ticket);
+					ticketList.remove(ticket);
 				}
 			}
 			
@@ -158,7 +155,7 @@ public class TicketList {
 //			}
 //		}
 		
-		System.out.println(ticketsList);
+		System.out.println(ticketList);
 		
 		
 		
