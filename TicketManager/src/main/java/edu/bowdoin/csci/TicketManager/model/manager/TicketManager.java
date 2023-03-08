@@ -4,6 +4,10 @@ import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.TicketType;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Category;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket.Priority;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.bowdoin.csci.TicketManager.model.command.Command;
 
 /**
@@ -12,6 +16,8 @@ import edu.bowdoin.csci.TicketManager.model.command.Command;
  */
 public class TicketManager {
 	
+	private TicketList ticketList = new TicketList();
+	private static TicketManager singleton = new TicketManager();
 	
 	/**
 	 * Constructor for TicketManager that takes no parameters.
@@ -28,7 +34,7 @@ public class TicketManager {
 	 */
 	public static TicketManager getInstance() {
 		
-		return new TicketManager();
+		return singleton;
 		
 	}
 	
@@ -55,6 +61,7 @@ public class TicketManager {
 	 */
 	public void createNewTicketList() {
 		
+		ticketList = new TicketList();
 		
 	}
 	
@@ -71,7 +78,7 @@ public class TicketManager {
 	 * Fetches tickets and ticket fields to display in the ui based on their type
 	 *
 	 */
-	public String[][] getTicketsForDisplayByType(TicketType ticket) {
+	public String[][] getTicketsForDisplayByType(TicketType typeTicket) {
 		
 		return null;
 	}
@@ -82,7 +89,8 @@ public class TicketManager {
 	 */
 	public Ticket getTicketById(int id) {
 		
-		return null;
+		//Call get ticket by ID function from TicketList
+		return ticketList.getTicketById(id);
 	}
 	
 	/**
@@ -100,6 +108,8 @@ public class TicketManager {
 	 */
 	public void deleteTicketById(int id) {
 		
+		//Call delete ticket function from TicketList
+		ticketList.deleteTicketById(id);
 		
 	}
 	
@@ -108,6 +118,10 @@ public class TicketManager {
 	 *
 	 */
 	public void addTicketToList(TicketType ticketType, String s1, String s2, Category cat, Priority p, String s3) {
+		
+		//Ticket newTicket = new Ticket(ticketType, s2, s2, cat, p, s3);
+		
+		ticketList.addTicket(ticketType, s2, s2, cat, p, s3);
 		
 	}
 	

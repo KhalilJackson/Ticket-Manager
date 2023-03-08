@@ -10,6 +10,11 @@ import java.util.List;
 
 public class TicketList {
 	
+	
+	
+	public static List<Ticket> ticketList = new ArrayList<Ticket>();
+	
+	
 	/**
 <<<<<<< HEAD
 	 * Constructor for TicketList that takes in no parameters.
@@ -23,14 +28,15 @@ public class TicketList {
 	}
 	
 	/**
-<<<<<<< HEAD
 	 * Adds ticket to ticket list.
-=======
 	 * Creates a ticket given the input parameters and adds it to the ticket list
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public int addTicket(TicketType type, String thing1, String thing2, Category category, Priority priority, String thing3) {
+		
+		Ticket newTicket = new Ticket(type, thing1, thing2, category, priority, thing3);
+		
+		ticketList.add(newTicket);
 		return 0;
 	}
 	
@@ -44,6 +50,11 @@ public class TicketList {
 	 */
 	public void addTickets(List<Ticket> tickets) {
 		
+		if (tickets != null) {
+			
+			ticketList.addAll(tickets);
+		}
+		
 	}
 	
 	/**
@@ -55,7 +66,7 @@ public class TicketList {
 	 *
 	 */
 	public List<Ticket> getTickets(){
-		return null;
+		return ticketList;
 	}
 	
 	/**
@@ -67,7 +78,19 @@ public class TicketList {
 	 *
 	 */
 	public List<Ticket> getTicketsByType(TicketType type){
-		return null;
+		
+		List<Ticket> ticketsOfType = new ArrayList<Ticket>();
+		
+		for (Ticket ticket: ticketList) {
+			
+			if (ticket.getTicketType() == type) {
+				
+				ticketsOfType.add(ticket);
+			}
+			
+		}
+		
+		return ticketsOfType;
 	}
 	
 	/**
@@ -79,6 +102,14 @@ public class TicketList {
 	 *
 	 */
 	public Ticket getTicketById(int id) {
+		
+		for (Ticket ticket: ticketList) {
+		
+			if (ticket.getTicketId() == id) {
+				return ticket;
+			}
+		}
+		
 		return null;
 	}
 	
@@ -92,6 +123,8 @@ public class TicketList {
 	 */
 	public void executeCommand(int i, Command command) {
 		
+		
+		
 	}
 	
 	/**
@@ -103,6 +136,28 @@ public class TicketList {
 	 *
 	 */
 	public void deleteTicketById(int id) {
+		
+		if ((id > 0)) {
+			
+			for (Ticket ticket: ticketList) {
+				
+				if (ticket.getTicketId() == id) {
+					ticketList.remove(ticket);
+				}
+			}
+			
+		}
+		
+//		for (Ticket ticket: tickets) {
+//			
+//			if (ticket.getTicketId() == id) {
+//				tickets.remove(ticket);
+//			}
+//		}
+		
+		System.out.println(ticketList);
+		
+		
 		
 	}
 
