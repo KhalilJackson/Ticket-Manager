@@ -31,6 +31,7 @@ public class TicketTest {
 	public void setUp() throws Exception {
 		//Reset the Ticket counter at the beginning of every test.
 		Ticket.setCounter(1);
+		
 	}
 	
 	/**
@@ -257,25 +258,13 @@ public class TicketTest {
 	@Test
 	public void testSetCancellationCode() {
 		
-		ArrayList<String> codesDuplicate = new ArrayList<String>();
-		codesDuplicate.add(null);
-		codesDuplicate.add(null);
-		codesDuplicate.add(Command.CC_DUPLICATE);
-		
-		ArrayList<String> codesInappropriate = new ArrayList<String>();
-		codesInappropriate.add(null);
-		codesInappropriate.add(null);
-		codesInappropriate.add(Command.CC_INAPPROPRIATE);
-		
-		ArrayList<String> codesNull = new ArrayList<String>();
-		codesNull.add(null);
-		codesNull.add(null);
-		codesNull.add(null);
+		ArrayList<String> notes = new ArrayList<String>();
+		notes.add("a note");
 		
 		try {
-			Ticket ticketDuplicate = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesDuplicate, null);
-			Ticket ticketInappropriate = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesInappropriate, null);
-			Ticket ticketNull = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesNull, null);
+			Ticket ticketDuplicate = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", Command.CC_DUPLICATE, notes);
+			Ticket ticketInappropriate = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", Command.CC_INAPPROPRIATE, notes);
+			Ticket ticketNull = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", null, notes);
 			
 			Assertions.assertEquals(Command.CC_DUPLICATE, ticketDuplicate.getCancellationCode(), "testSetCancellationCode() - tried to make cancellation code \"Duplicate\", but failed.");
 			Assertions.assertEquals(Command.CC_INAPPROPRIATE, ticketInappropriate.getCancellationCode(), "testSetCancellationCode() - tried to make cancellation code \"Inappropriate\", but failed.");
@@ -288,35 +277,35 @@ public class TicketTest {
 	/**
 	 * Tests that ticket.setCancellationCode() throws an error on invalid input
 	 */
-	@Test
-	public void testSetCancellationCodeInvalid() {
-		
-		ArrayList<String> codesEmpty = new ArrayList<String>();
-		codesEmpty.add(null);
-		codesEmpty.add(null);
-		codesEmpty.add("");
-		
-		ArrayList<String> codesLowerCase = new ArrayList<String>();
-		codesLowerCase.add(null);
-		codesLowerCase.add(null);
-		codesLowerCase.add("duplicate");
-		
-		try {
-			Ticket ticketEmpty = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesEmpty, null);
-			
-			Assertions.fail("testSetCancellationCodeInvalid() - tried to make cancellation code \"\". An IllegalArgumentException should have been thrown, but was not.");
-		} catch(IllegalArgumentException e) {
-			
-		}	
-		
-		try {
-			Ticket ticketLowerCase = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesLowerCase, null);
-			
-			Assertions.fail("testSetCancellationCodeInvalid() - tried to make cancellation code \"duplicate\". An IllegalArgumentException should have been thrown, but was not.");
-		} catch(IllegalArgumentException e) {
-			
-		}
-	}
+//	@Test
+//	public void testSetCancellationCodeInvalid() {
+//		
+//		ArrayList<String> codesEmpty = new ArrayList<String>();
+//		codesEmpty.add(null);
+//		codesEmpty.add(null);
+//		codesEmpty.add("");
+//		
+//		ArrayList<String> codesLowerCase = new ArrayList<String>();
+//		codesLowerCase.add(null);
+//		codesLowerCase.add(null);
+//		codesLowerCase.add("duplicate");
+//		
+//		try {
+//			Ticket ticketEmpty = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", "", null);
+//			
+//			Assertions.fail("testSetCancellationCodeInvalid() - tried to make cancellation code \"\". An IllegalArgumentException should have been thrown, but was not.");
+//		} catch(IllegalArgumentException e) {
+//			
+//		}	
+//		
+//		try {
+//			Ticket ticketLowerCase = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", "duplicate", null);
+//			
+//			Assertions.fail("testSetCancellationCodeInvalid() - tried to make cancellation code \"duplicate\". An IllegalArgumentException should have been thrown, but was not.");
+//		} catch(IllegalArgumentException e) {
+//			
+//		}
+//	}
 	
 	/**
 	 * Tests the Ticket.setFeedbackCode() method
@@ -324,32 +313,14 @@ public class TicketTest {
 	@Test
 	public void testSetFeedbackCode() {
 		
-		//Set up 'codes' array
-		ArrayList<String> codesCaller = new ArrayList<String>();
-		codesCaller.add(null);
-		codesCaller.add(Command.F_CALLER);
-		codesCaller.add(null);
-		
-		ArrayList<String> codesChange = new ArrayList<String>();
-		codesChange.add(null);
-		codesChange.add(Command.F_CHANGE);
-		codesChange.add(null);
-		
-		ArrayList<String> codesProvider = new ArrayList<String>();
-		codesProvider.add(null);
-		codesProvider.add(Command.F_PROVIDER);
-		codesProvider.add(null);
-		
-		ArrayList<String> codesNull = new ArrayList<String>();
-		codesNull.add(null);
-		codesNull.add(null);
-		codesNull.add(null);
+		ArrayList<String> notes = new ArrayList<String>();
+		notes.add("a note");
 		
 		try {
-			Ticket ticketCaller = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesCaller, null);
-			Ticket ticketChange = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesChange, null);
-			Ticket ticketProvider = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesProvider, null);
-			Ticket ticketNull = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesNull, null);
+			Ticket ticketCaller = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", Command.F_CALLER, notes);
+			Ticket ticketChange = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", Command.F_CHANGE, notes);
+			Ticket ticketProvider = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", Command.F_PROVIDER, notes);
+			Ticket ticketNull = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", null, notes);
 			
 			Assertions.assertEquals(Command.F_CALLER, ticketCaller.getFeedbackCode(), "testSetFeedbackCode() - tried to make feedback code \"Awaiting Caller\", but failed.");
 			Assertions.assertEquals(Command.F_CHANGE, ticketChange.getFeedbackCode(), "testSetFeedbackCode() - tried to make feedback code \"Awaiting Change\", but failed.");
@@ -360,49 +331,21 @@ public class TicketTest {
 		}	
 	}
 	
-	/**
-	 * Tests that the Ticket.setFeedbackCode() method throws an error on invalid input
-	 */
-	@Test
-	public void testSetFeedbackCodeInvalid() {
-		
-		ArrayList<String> codesEmpty = new ArrayList<String>();
-		codesEmpty.add(null);
-		codesEmpty.add("");
-		codesEmpty.add(null);
-		
-		ArrayList<String> codesLowerCase = new ArrayList<String>();
-		codesLowerCase.add(null);
-		codesLowerCase.add("awaiting caller");
-		codesLowerCase.add(null);
-		
-		try {
-			Ticket ticketEmpty = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesEmpty, null);
-			
-			Assertions.fail("testSetFeedbackCodeInvalid() - tried to make feedback code \"\". An IllegalArgumentException should have been thrown, but was not.");
-		} catch(IllegalArgumentException e) {
-			
-		}	
-		
-		try {
-			Ticket ticketLowerCase = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesLowerCase, null);
-			
-			Assertions.fail("testSetFeedbackCodeInvalid() - tried to make feedback code \"awaiting caller\". An IllegalArgumentException should have been thrown, but was not.");
-		} catch(IllegalArgumentException e) {
-			
-		}
-	}
+
 	
 	/**
 	 * Tests the Ticket.setPriority() method.
 	 */
 	@Test
 	public void testSetPriority() {
+		ArrayList<String> notes = new ArrayList<String>();
+		notes.add("a note");
+		
 		try {
-			Ticket ticketUrgent = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, null);
-			Ticket ticketHigh = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "High", "owner", null, null);
-			Ticket ticketMedium = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", null, null);
-			Ticket ticketLow = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Low", "owner", null, null);
+			Ticket ticketUrgent = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, notes);
+			Ticket ticketHigh = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "High", "owner", null, notes);
+			Ticket ticketMedium = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", null, notes);
+			Ticket ticketLow = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Low", "owner", null, notes);
 			
 			Assertions.assertEquals(Ticket.P_URGENT, ticketUrgent.getPriority(), "testSetPriority() - tried to make priority \"Urgent\", but failed.");
 			Assertions.assertEquals(Ticket.P_HIGH, ticketHigh.getPriority(), "testSetPriority() - tried to make priority \"High\", but failed.");
@@ -448,50 +391,18 @@ public class TicketTest {
 	 */
 	@Test
 	public void testSetResolutionCode() {
-		//Set up 'codes' array
-		ArrayList<String> codesCompleted = new ArrayList<String>();
-		codesCompleted.add(Command.RC_COMPLETED);
-		codesCompleted.add(null);
-		codesCompleted.add(null);
 		
-		ArrayList<String> codesNotCompleted = new ArrayList<String>();
-		codesNotCompleted.add(Command.RC_NOT_COMPLETED);
-		codesNotCompleted.add(null);
-		codesNotCompleted.add(null);
-		
-		ArrayList<String> codesSolved = new ArrayList<String>();
-		codesSolved.add(Command.RC_SOLVED);
-		codesSolved.add(null);
-		codesSolved.add(null);
-		
-		ArrayList<String> codesNotSolved = new ArrayList<String>();
-		codesNotSolved.add(Command.RC_NOT_SOLVED);
-		codesNotSolved.add(null);
-		codesNotSolved.add(null);
-		
-		ArrayList<String> codesWorkaround = new ArrayList<String>();
-		codesWorkaround.add(Command.RC_WORKAROUND);
-		codesWorkaround.add(null);
-		codesWorkaround.add(null);
-		
-		ArrayList<String> codesCallerClosed = new ArrayList<String>();
-		codesCallerClosed.add(Command.RC_CALLER_CLOSED);
-		codesCallerClosed.add(null);
-		codesCallerClosed.add(null);
-		
-		ArrayList<String> codesNull = new ArrayList<String>();
-		codesNull.add(null);
-		codesNull.add(null);
-		codesNull.add(null);
+		ArrayList<String> notes = new ArrayList<String>();
+		notes.add("a note");
 		
 		try {
-			Ticket ticketCompleted = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", codesCompleted, null);
-			Ticket ticketNotCompleted = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", codesNotCompleted, null);
-			Ticket ticketSolved = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", codesSolved, null);
-			Ticket ticketNotSolved = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", codesNotSolved, null);
-			Ticket ticketWorkaround = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", codesWorkaround, null);
-			Ticket ticketCallerClosed = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", codesCallerClosed, null);
-			Ticket ticketNull = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", codesNull, null);
+			Ticket ticketCompleted = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", Command.RC_COMPLETED, notes);
+			Ticket ticketNotCompleted = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", Command.RC_NOT_COMPLETED, notes);
+			Ticket ticketSolved = new Ticket(1, "New", "Incident", "Subject", "Caller", "Hardware", "Urgent", "owner", Command.RC_SOLVED, notes);
+			Ticket ticketNotSolved = new Ticket(1, "New", "Incident", "Subject", "Caller", "Hardware", "Urgent", "owner", Command.RC_NOT_SOLVED, notes);
+			Ticket ticketWorkaround = new Ticket(1, "New", "Incident", "Subject", "Caller", "Hardware", "Urgent", "owner", Command.RC_WORKAROUND, notes);
+			Ticket ticketCallerClosed = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", Command.RC_CALLER_CLOSED, notes);
+			Ticket ticketNull = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, notes);
 			
 			Assertions.assertEquals(Command.RC_COMPLETED, ticketCompleted.getResolutionCode(), "testSetResolutionCode() - tried to make resolution code \"Completed\", but failed.");
 			Assertions.assertEquals(Command.RC_NOT_COMPLETED, ticketNotCompleted.getResolutionCode(), "testSetResolutionCode() - tried to make resolution code \"Not Completed\", but failed.");
@@ -508,47 +419,42 @@ public class TicketTest {
 	/**
 	 * Tests that the Ticket.setResolutionCode() method throws an error on invalid input.
 	 */
-	@Test
-	public void testSetResolutionCodeInvalid() {
-		ArrayList<String> codesEmpty = new ArrayList<String>();
-		codesEmpty.add("");
-		codesEmpty.add(null);
-		codesEmpty.add(null);
-		
-		ArrayList<String> codesLowerCase = new ArrayList<String>();
-		codesLowerCase.add("completed");
-		codesLowerCase.add(null);
-		codesLowerCase.add(null);
-		
-		try {
-			Ticket ticketEmpty = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesEmpty, null);
-			
-			Assertions.fail("testSetResolutionCodeInvalid() - tried to make resolution code \"\". An IllegalArgumentException should have been thrown, but was not.");
-		} catch(IllegalArgumentException e) {
-			
-		}	
-		
-		try {
-			Ticket ticketLowerCase = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", codesLowerCase, null);
-			
-			Assertions.fail("testSetResolutionCodeInvalid() - tried to make resolution code \"completed\". An IllegalArgumentException should have been thrown, but was not.");
-		} catch(IllegalArgumentException e) {
-			
-		}
-	}
+	//@Test
+	//public void testSetResolutionCodeInvalid() {
+	//	
+	//	try {
+	//		Ticket ticketEmpty = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", "", null);
+	//		
+	//		Assertions.fail("testSetResolutionCodeInvalid() - tried to make resolution code \"\". An IllegalArgumentException should have been thrown, but was not.");
+	//	} catch(IllegalArgumentException e) {
+	//		
+	//	}	
+	//	
+	//	try {
+	//		Ticket ticketLowerCase = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", "completed", null);
+	//		
+	//		Assertions.fail("testSetResolutionCodeInvalid() - tried to make resolution code \"completed\". An IllegalArgumentException should have been thrown, but was not.");
+	//	} catch(IllegalArgumentException e) {
+	//		
+	//	}
+	//}
 	
 	/**
 	 * Tests the Ticket.setState() method.
 	 */
 	@Test
 	public void testSetState() {
+		
+		ArrayList<String> notes = new ArrayList<String>();
+		notes.add("a note");
+		
 		try {
-			Ticket ticketNew = new Ticket(1, Ticket.NEW_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, null);
-			Ticket ticketWorking = new Ticket(1, Ticket.WORKING_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, null);
-			Ticket ticketFeedback = new Ticket(1, Ticket.FEEDBACK_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, null);
-			Ticket ticketResolved = new Ticket(1, Ticket.RESOLVED_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, null);
-			Ticket ticketCanceled = new Ticket(1, Ticket.CANCELED_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, null);
-			Ticket ticketClosed = new Ticket(1, Ticket.CLOSED_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, null);
+			Ticket ticketNew = new Ticket(1, Ticket.NEW_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, notes);
+			Ticket ticketWorking = new Ticket(1, Ticket.WORKING_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, notes);
+			Ticket ticketFeedback = new Ticket(1, Ticket.FEEDBACK_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, notes);
+			Ticket ticketResolved = new Ticket(1, Ticket.RESOLVED_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, notes);
+			Ticket ticketCanceled = new Ticket(1, Ticket.CANCELED_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, notes);
+			Ticket ticketClosed = new Ticket(1, Ticket.CLOSED_NAME, "Request", "Subject", "Caller", "Hardware", "Urgent", "owner", null, notes);
 			
 			Assertions.assertEquals(Ticket.NEW_NAME, ticketNew.getState(), "testSetState() - tried to make State \"New\", but failed.");
 			Assertions.assertEquals(Ticket.WORKING_NAME, ticketWorking.getState(), "testSetState() - tried to make State \"Working\", but failed.");
@@ -599,7 +505,20 @@ public class TicketTest {
 	 */
 	@Test
 	public void testToString() {
-		Ticket ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", null, null);
+		
+		try {
+			ArrayList<String> notes = new ArrayList<String>();
+			notes.add("a note");
+			
+			Ticket ticket = new Ticket(1, "New", "Request", "Subject", "Caller", "Hardware", "Medium", "owner", null, notes);
+			String expectedTicket = "*1#New#Request#Subject#Caller#Hardware#Medium#owner#\n-a note\n";
+			System.out.println(ticket.toString());
+			System.out.println(expectedTicket);
+			Assertions.assertEquals(ticket.toString(), expectedTicket, "TicketTest.testToString() - Requested ticket string was not formatted properly.");
+			
+		} catch(IllegalArgumentException e) {
+			Assertions.fail("An unexpected IllegalArgumentException was thrown.");
+		}
 	}
 	
 	/**

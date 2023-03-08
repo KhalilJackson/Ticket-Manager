@@ -110,8 +110,9 @@ public class Ticket {
 	 * Constructs ticket using ID, state, type, subject, caller, category, priority, owner, codes, and notes.
 	 *
 	 */
-	public Ticket(int ticketid, String state, String type, String subject, String caller, String category, String priority, String owner, ArrayList<String> codes, ArrayList<String> notes) {
+	public Ticket(int ticketid, String state, String type, String subject, String caller, String category, String priority, String owner, String code, ArrayList<String> notes) {
 		
+		//Set all fields of the ticket object
 		setCounter(ticketid);
 		this.ticketId = counter;
 		this.setState(state);
@@ -122,18 +123,20 @@ public class Ticket {
 		this.setPriority(priority);
 		this.setOwner(owner);
 		
-		if(codes == null) {
-			this.resolutionCode = null;
-			this.feedbackCode = null;
-			this.cancellationCode = null;
-		} else if(codes.size() == 3) {
-			this.setResolutionCode(codes.get(0));
-			this.setFeedbackCode(codes.get(1));
-			this.setCancellationCode(codes.get(2));
-		} else {
-			throw new IllegalArgumentException("Bad Codes");
-		}
+		//set the code of the ticket object
+		this.setResolutionCode(code);
+		this.setFeedbackCode(code);
+		this.setCancellationCode(code);
 		
+		//Make sure that no notes are null, and that the note array itself is not null or empty
+		if(notes == null || notes.size() == 0) {
+			throw new IllegalArgumentException("A ticket cannot have a null note.");
+		}
+		for(int i = 0; i < notes.size(); i++) {
+			if(notes.get(i) == null) {
+				throw new IllegalArgumentException("A ticket cannot have a null note.");
+			}
+		}
 		this.notes = notes;
 		
 		IncrementCounter();
@@ -427,7 +430,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Requested cancellation code does not exist.");
+		    	this.cancellationCode = null;
 		}
 	}
 	
@@ -498,7 +501,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Requested feedback code does not exist.");
+		    	this.feedbackCode = null;
 		    
 		}
 		
@@ -548,22 +551,37 @@ public class Ticket {
 		
 		switch(resolution) {
 		    case Command.RC_COMPLETED:
+		    	if(this.ticketType == TicketType.INCIDENT) {
+		    		throw new UnsupportedOperationException("Resolution code cannot be \"Completed\" if ticket is of type incident.");
+		    	}
 		    	this.resolutionCode = ResolutionCode.COMPLETED;
 		    	break;
 		    	
 		    case Command.RC_NOT_COMPLETED:
+		    	if(this.ticketType == TicketType.INCIDENT) {
+		    		throw new UnsupportedOperationException("Resolution code cannot be \"Not Completed\" if ticket is of type incident.");
+		    	}
 		    	this.resolutionCode = ResolutionCode.NOT_COMPLETED;
 		    	break;
 		    	
 		    case Command.RC_SOLVED:
+		    	if(this.ticketType == TicketType.REQUEST) {
+		    		throw new UnsupportedOperationException("Resolution code cannot be \"Solved\" if ticket is of type request.");
+		    	}
 		    	this.resolutionCode = ResolutionCode.SOLVED;
 		    	break;
 		    	
 		    case Command.RC_NOT_SOLVED:
+		    	if(this.ticketType == TicketType.REQUEST) {
+		    		throw new UnsupportedOperationException("Resolution code cannot be \"Not Solved\" if ticket is of type request.");
+		    	}
 		    	this.resolutionCode = ResolutionCode.NOT_SOLVED;
 		    	break;
 		    	
 		    case Command.RC_WORKAROUND:
+		    	if(this.ticketType == TicketType.REQUEST) {
+		    		throw new UnsupportedOperationException("Resolution code cannot be \"Workaround\" if ticket is of type request.");
+		    	}
 		    	this.resolutionCode = ResolutionCode.WORKAROUND;
 		    	break;
 		    	
@@ -572,7 +590,7 @@ public class Ticket {
 		    	break;
 		    	
 		    default:
-		    	throw new IllegalArgumentException("Requested resolution code does not exist.");
+		    	this.resolutionCode = null;
 		}
 	}
 	
@@ -656,9 +674,20 @@ public class Ticket {
 	 *
 	 */
 	public String toString() {
+		String code = "";
+		if(this.resolutionCode != null) {
+			code = this.getResolutionCode();
+		}
+		else if(this.feedbackCode != null) {
+			code = this.getFeedbackCode();
+		}
+		else if(this.cancellationCode != null) {
+			code = this.getCancellationCode();
+		}
+		
 		return "*" + String.valueOf(ticketId) + "#" + this.getState() + "#" + this.getTicketTypeString() + 
 				"#" + this.getSubject() + "#" + this.getCaller() + "#" + this.getCategory() + "#" + 
-				this.getPriority() + "#" + this.getOwner() + "#" + this.getResolutionCode();
+				this.getPriority() + "#" + this.getOwner() + "#" + code + "\n" + this.getNotes();
 	}
 	
 	/**

@@ -17,17 +17,6 @@ import edu.bowdoin.csci.TicketManager.model.manager.*;
 
 public class TicketReaderTest {
 	
-	private TicketReader reader;
-
-	/**
-	 * Creates an instance of TicketReader to use in all tests
-	 * @throws Exception
-	 */
-	@BeforeEach
-	public void setUp() throws Exception {
-		reader = new TicketReader();
-	}
-	
 	/**
 	 * Tests that reading an empty file returns an error
 	 */
@@ -114,6 +103,14 @@ public class TicketReaderTest {
 	@Test
 	public void testReadTicketFilePath() {
 		
+		try {
+			
+			ArrayList<Ticket> badTicket = TicketReader.readTicketFile("../badPath");
+			
+		}catch(IllegalArgumentException e) {
+			Assertions.fail("TicketReaderTest.testReadTicketFilePath() - Input an invalid path to the readTicket() method and got an error, as expected.");
+		}
+		
 	}
 	
 	/**
@@ -124,12 +121,11 @@ public class TicketReaderTest {
 		
 		ArrayList<Ticket> expected_tickets = new ArrayList<Ticket>();
 		ArrayList<String> notes = new ArrayList<String>();
-		ArrayList<String> codes = new ArrayList<String>();
 		
 		//Test on 'act_ticket_new.txt' file
 		try {
 			
-			ArrayList<Ticket> act_ticket_new = reader.readTicketFile("../TicketManager/test-files/act_ticket_new.txt");
+			ArrayList<Ticket> act_ticket_new = TicketReader.readTicketFile("../TicketManager/test-files/act_ticket_new.txt");
 			
 			notes.add("Install latest Jenkins system on 216 VMs");
 			expected_tickets.add(new Ticket(1, "New", "Request", "Jenkins Installation", "sesmith5", "Software", "Urgent", "", null, notes));
@@ -145,7 +141,7 @@ public class TicketReaderTest {
 			
 		//Test on 'act_ticket.txt' file
 		try {
-			ArrayList<Ticket> act_ticket = reader.readTicketFile("../TicketManager/test-files/act_ticket.txt");
+			ArrayList<Ticket> act_ticket = TicketReader.readTicketFile("../TicketManager/test-files/act_ticket.txt");
 			
 			notes.add("note");
 			expected_tickets.add(new Ticket(1, "New", "Incident", "Subject", "Caller", "Network", "Low", "", null, notes));
@@ -161,33 +157,23 @@ public class TicketReaderTest {
 			
 		//Test on 'act_tickets.txt' file
 		try {
-			ArrayList<Ticket> act_tickets = reader.readTicketFile("../TicketManager/test-files/act_tickets.txt");
+			ArrayList<Ticket> act_tickets = TicketReader.readTicketFile("../TicketManager/test-files/act_tickets.txt");
 			
 			notes.add("a note");
 			notes.add("a note with \na new line");
 			notes.add("a third note");
 			
-			codes.add("Not Completed");
-			codes.add(null);
-			codes.add(null);
-			
-			expected_tickets.add(new Ticket(3, "Closed", "Request", "Subject line", "caller", "Inquiry", "Medium", "owner", codes, notes));
+			expected_tickets.add(new Ticket(3, "Closed", "Request", "Subject line", "caller", "Inquiry", "Medium", "owner", Command.RC_NOT_COMPLETED, notes));
 			
 			notes.clear();
-			codes.clear();
 			
 			notes.add("a note 2");
 			notes.add("a second note");
 			notes.add("a note with \na new line");
 			
-			codes.add(null);
-			codes.add(null);
-			codes.add("Duplicate");
-			
-			expected_tickets.add(new Ticket(6, "Canceled", "Incident", "Subject line", "caller", "Software", "Low", "owner", codes, notes));
+			expected_tickets.add(new Ticket(6, "Canceled", "Incident", "Subject line", "caller", "Software", "Low", "owner", Command.CC_DUPLICATE, notes));
 			
 			notes.clear();
-			codes.clear();
 			
 			notes.add("a note 3");
 			
