@@ -36,7 +36,8 @@ public class TicketManager {
 	 */
 	public static TicketManager getInstance() {
 		
-		return null;
+		
+		return new TicketManager();
 		
 	}
 	

@@ -10,6 +10,11 @@ import java.util.List;
 
 public class TicketList {
 	
+	
+	
+	public static List<Ticket> ticketsList = new ArrayList<Ticket>();
+	
+	
 	/**
 <<<<<<< HEAD
 	 * Constructor for TicketList that takes in no parameters.
@@ -31,6 +36,10 @@ public class TicketList {
 	 *
 	 */
 	public int addTicket(TicketType type, String thing1, String thing2, Category category, Priority priority, String thing3) {
+		
+		Ticket newTicket = new Ticket(type, thing1, thing2, category, priority, thing3);
+		
+		ticketsList.add(newTicket);
 		return 0;
 	}
 	
@@ -44,6 +53,11 @@ public class TicketList {
 	 */
 	public void addTickets(List<Ticket> tickets) {
 		
+		if (tickets != null) {
+			
+			ticketsList.addAll(tickets);
+		}
+		
 	}
 	
 	/**
@@ -55,7 +69,7 @@ public class TicketList {
 	 *
 	 */
 	public List<Ticket> getTickets(){
-		return null;
+		return ticketsList;
 	}
 	
 	/**
@@ -67,7 +81,19 @@ public class TicketList {
 	 *
 	 */
 	public List<Ticket> getTicketsByType(TicketType type){
-		return null;
+		
+		List<Ticket> ticketsOfType = new ArrayList<Ticket>();
+		
+		for (Ticket ticket: ticketsList) {
+			
+			if (ticket.getTicketType() == type) {
+				
+				ticketsOfType.add(ticket);
+			}
+			
+		}
+		
+		return ticketsOfType;
 	}
 	
 	/**
@@ -79,6 +105,14 @@ public class TicketList {
 	 *
 	 */
 	public Ticket getTicketById(int id) {
+		
+		for (Ticket ticket: ticketsList) {
+		
+			if (ticket.getTicketId() == id) {
+				return ticket;
+			}
+		}
+		
 		return null;
 	}
 	
@@ -92,6 +126,8 @@ public class TicketList {
 	 */
 	public void executeCommand(int i, Command command) {
 		
+		
+		
 	}
 	
 	/**
@@ -103,6 +139,28 @@ public class TicketList {
 	 *
 	 */
 	public void deleteTicketById(int id) {
+		
+		if ((id > 0)) {
+			
+			for (Ticket ticket: ticketsList) {
+				
+				if (ticket.getTicketId() == id) {
+					ticketsList.remove(ticket);
+				}
+			}
+			
+		}
+		
+//		for (Ticket ticket: tickets) {
+//			
+//			if (ticket.getTicketId() == id) {
+//				tickets.remove(ticket);
+//			}
+//		}
+		
+		System.out.println(ticketsList);
+		
+		
 		
 	}
 
