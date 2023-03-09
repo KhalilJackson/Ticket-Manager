@@ -3,6 +3,8 @@ package model.io;
 import java.util.List;
 import java.util.ArrayList;
 
+import java.io.IOException;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -105,7 +107,7 @@ public class TicketReaderTest {
 		
 		try {
 			
-			ArrayList<Ticket> badTicket = TicketReader.readTicketFile("../badPath");
+			ArrayList<Ticket> badTicket = TicketReader.readTicketFile("test-files/badPath");
 			
 		}catch(IllegalArgumentException e) {
 			Assertions.fail("TicketReaderTest.testReadTicketFilePath() - Input an invalid path to the readTicket() method and got an error, as expected.");
@@ -125,7 +127,7 @@ public class TicketReaderTest {
 		//Test on 'act_ticket_new.txt' file
 		try {
 			
-			ArrayList<Ticket> act_ticket_new = TicketReader.readTicketFile("../TicketManager/test-files/act_ticket_new.txt");
+			ArrayList<Ticket> act_ticket_new = TicketReader.readTicketFile("/TicketManager/test-files/act_ticket_new.txt");
 			
 			notes.add("Install latest Jenkins system on 216 VMs");
 			expected_tickets.add(new Ticket(1, "New", "Request", "Jenkins Installation", "sesmith5", "Software", "Urgent", "", null, notes));
@@ -135,13 +137,13 @@ public class TicketReaderTest {
 			notes.clear();
 			expected_tickets.clear();
 		} catch(IllegalArgumentException e) {
-			
+			Assertions.fail("TicketReaderTest.testRReadTicketFileOutput() - An unexpected IllegalArgumentException was thrown.");
 		}
 			
 			
 		//Test on 'act_ticket.txt' file
 		try {
-			ArrayList<Ticket> act_ticket = TicketReader.readTicketFile("../TicketManager/test-files/act_ticket.txt");
+			ArrayList<Ticket> act_ticket = TicketReader.readTicketFile("test-files/act_ticket.txt");
 			
 			notes.add("note");
 			expected_tickets.add(new Ticket(1, "New", "Incident", "Subject", "Caller", "Network", "Low", "", null, notes));
@@ -157,7 +159,7 @@ public class TicketReaderTest {
 			
 		//Test on 'act_tickets.txt' file
 		try {
-			ArrayList<Ticket> act_tickets = TicketReader.readTicketFile("../TicketManager/test-files/act_tickets.txt");
+			ArrayList<Ticket> act_tickets = TicketReader.readTicketFile("test-files/act_tickets.txt");
 			
 			notes.add("a note");
 			notes.add("a note with \na new line");
