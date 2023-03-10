@@ -3,7 +3,7 @@ package edu.bowdoin.csci.TicketManager.model.io;
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -35,9 +35,9 @@ public class TicketReader {
 		try {
 			File ticketFile = new File(filePath);
 			FileReader reader = new FileReader(ticketFile);
-			int character = reader.read();
+			char character = (char)reader.read();
 			
-			while((character = reader.read()) != -1){
+			while((character = (char)reader.read()) != (char)-1){
 				ticket = ticket + character;
 				
 				//An asterisk denotes the start of a new ticket
@@ -52,35 +52,74 @@ public class TicketReader {
 			
 			reader.close();
 			
-			ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+		} catch(IOException e) {
+			e.printStackTrace();
+			//return null;
+		}
+		
+		for(int i = 0; i < ticketStrings.size(); i++) {
+			System.out.println(ticketStrings.get(i));
+		}
+		
+		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+		
+		//Convert each ticket string to a ticket object then store it in an array.
+		for(int i = 0; i < ticketStrings.size(); i++) {
 			
-			//Convert each ticket string to a ticket object then store it in an array.
-			for(int i = 0; i < ticketStrings.size(); i++) {
+			//'#' character separates different parameters, '\n-' separates different notes,
+			//and '\n*' marks the end of the ticket
+			
+			
+			ArrayList<String> ticketElements = new ArrayList<String>(); 
+			char currentChar;
+			
+			String currString = "";
+			
+			for(int j = 0; j < ticketStrings.get(i).length(); j++) {
 				
-				//'#' character separates different parameters, '\n-' separates different notes,
-				//and '\n*' marks the end of the ticket
-				String[] ticketElements = ticketStrings.get(i).split("#|(\n-)|(\n*)");
+				currentChar = ticketStrings.get(i).charAt(j);
 				
-				ArrayList<String> notes = new ArrayList<String>();
-				
-				//A ticket has 8 parameters, so all elements past the 8th must be notes
-				for(int j = 9; j < ticketElements.length; j++) {
-					notes.add(ticketElements[j]);
+				if(currentChar == '#') {
+					ticketElements.add(currString);
+					currString = "";
 				}
 				
-				Ticket nextTicket = new Ticket(Integer.parseInt(ticketElements[0]) , ticketElements[1], ticketElements[2], ticketElements[3], ticketElements[4], ticketElements[5], ticketElements[6], ticketElements[7], ticketElements[8], notes);
+				else if(currentChar == '\n' && j != ticketStrings.get(i).length() - 1) {
+					if(ticketStrings.get(i).charAt(j+1) == '-') {
+						ticketElements.add(currString);
+						currString = "";
+						j += 1;
+					}
+					
+					else if(ticketStrings.get(i).charAt(j+1) == '*') {
+						continue;
+					}
+				}
+				else {
+					currString = currString + currentChar;
+				}
 				
-				tickets.add(nextTicket);
 			}
 			
-			return tickets;
+			ticketElements.add(currString);
 			
-		} catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("pancakes.");
-			System.out.println(e.toString());
-			return null;
+			ArrayList<String> notes = new ArrayList<String>();
+			
+			//A ticket has 8 parameters, so all elements past the 8th must be notes
+			for(int j = 9; j < ticketElements.size(); j++) {
+				notes.add(ticketElements.get(j));
+			}
+			
+			for(int j = 0; j < ticketElements.size(); j++) {
+				System.out.println(ticketElements.get(j));
+			}
+			
+			Ticket nextTicket = new Ticket(Integer.parseInt(ticketElements.get(0)) , ticketElements.get(1), ticketElements.get(2), ticketElements.get(3), ticketElements.get(4), ticketElements.get(5), ticketElements.get(6), ticketElements.get(7), ticketElements.get(8), notes);
+			
+			tickets.add(nextTicket);
 		}
+		
+		return tickets;
 	}
 
 }

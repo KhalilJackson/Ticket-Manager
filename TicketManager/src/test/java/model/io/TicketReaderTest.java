@@ -127,7 +127,7 @@ public class TicketReaderTest {
 		//Test on 'act_ticket_new.txt' file
 		try {
 			
-			ArrayList<Ticket> act_ticket_new = TicketReader.readTicketFile("/TicketManager/test-files/act_ticket_new.txt");
+			ArrayList<Ticket> act_ticket_new = TicketReader.readTicketFile("test-files/act_ticket_new.txt");
 			
 			notes.add("Install latest Jenkins system on 216 VMs");
 			expected_tickets.add(new Ticket(1, "New", "Request", "Jenkins Installation", "sesmith5", "Software", "Urgent", "", null, notes));
