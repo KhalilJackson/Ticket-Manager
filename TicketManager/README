@@ -46,17 +46,17 @@ Testing TicketTests | 2 | Must test Ticket.java methods | Ethan Winters & Khalil
 --------------------------------------------------------------------------------------------------------------------------------------
 [PROCESS POINTS MILESTONE 3]
 
-Implement TicketReader Tests | 2 | No dependencies | Ethan Winters | Mar 6 | In Progress
+Implement TicketReader Tests | 2 | No dependencies | Ethan Winters | Mar 6 | Done!
 
-Implement TicketWriter Tests | 2 | No dependencies | Ethan Winters | Mar 6 | In Progress
+Implement TicketWriter Tests | 2 | No dependencies | Ethan Winters | Mar 6 | Done!
 
 Implement TicketList Tests | 2 | No dependencies | Khalil Jackson | Mar 6 | In Progress
 
 Implement TicketManager Tests | 2 | No dependencies | Khalil Jackson | Mar 6 | In Progress
 
-Implement TicketReader | 2 | Must implement Ticket class | Ethan Winters | -- | Not Started
+Implement TicketReader | 2 | Must implement Ticket class | Ethan Winters | -- | Done!
 
-Implement TicketWriter | 2 | Must implement Ticket class | Ethan Winters | -- | Not Started
+Implement TicketWriter | 2 | Must implement Ticket class | Ethan Winters | -- | Done!
 
 Implement TicketList | 2 | Must Implement Ticket and IO classes | Khalil Jackson | -- | Not Started
 
