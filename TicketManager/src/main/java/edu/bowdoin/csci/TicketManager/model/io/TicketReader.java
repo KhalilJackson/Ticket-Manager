@@ -38,6 +38,10 @@ public class TicketReader {
 			char character = (char)reader.read();
 			
 			while((character = (char)reader.read()) != (char)-1){
+				if(character == '\r') {
+					continue;
+				}
+				
 				ticket = ticket + character;
 				
 				//An asterisk denotes the start of a new ticket
@@ -52,13 +56,8 @@ public class TicketReader {
 			
 			reader.close();
 			
-		} catch(IOException e) {
+		} catch(Exception e) {
 			e.printStackTrace();
-			//return null;
-		}
-		
-		for(int i = 0; i < ticketStrings.size(); i++) {
-			System.out.println(ticketStrings.get(i));
 		}
 		
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
@@ -68,7 +67,6 @@ public class TicketReader {
 			
 			//'#' character separates different parameters, '\n-' separates different notes,
 			//and '\n*' marks the end of the ticket
-			
 			
 			ArrayList<String> ticketElements = new ArrayList<String>(); 
 			char currentChar;
@@ -82,22 +80,26 @@ public class TicketReader {
 				if(currentChar == '#') {
 					ticketElements.add(currString);
 					currString = "";
+					continue;
 				}
 				
 				else if(currentChar == '\n' && j != ticketStrings.get(i).length() - 1) {
-					if(ticketStrings.get(i).charAt(j+1) == '-') {
+					
+					boolean hyphen = ticketStrings.get(i).charAt(j+1) == '-';
+					boolean asterisk = ticketStrings.get(i).charAt(j+1) == '*';
+					if(hyphen) {
 						ticketElements.add(currString);
 						currString = "";
 						j += 1;
+						continue;
 					}
-					
-					else if(ticketStrings.get(i).charAt(j+1) == '*') {
+					else if(asterisk) {
+						j += 1;
 						continue;
 					}
 				}
-				else {
-					currString = currString + currentChar;
-				}
+				
+				currString = currString + currentChar;
 				
 			}
 			
@@ -110,11 +112,16 @@ public class TicketReader {
 				notes.add(ticketElements.get(j));
 			}
 			
-			for(int j = 0; j < ticketElements.size(); j++) {
-				System.out.println(ticketElements.get(j));
-			}
-			
-			Ticket nextTicket = new Ticket(Integer.parseInt(ticketElements.get(0)) , ticketElements.get(1), ticketElements.get(2), ticketElements.get(3), ticketElements.get(4), ticketElements.get(5), ticketElements.get(6), ticketElements.get(7), ticketElements.get(8), notes);
+			Ticket nextTicket = new Ticket(Integer.parseInt(ticketElements.get(0)), 
+											ticketElements.get(1), 
+											ticketElements.get(2), 
+											ticketElements.get(3), 
+											ticketElements.get(4), 
+											ticketElements.get(5), 
+											ticketElements.get(6), 
+											ticketElements.get(7), 
+											ticketElements.get(8), 
+											notes);
 			
 			tickets.add(nextTicket);
 		}
