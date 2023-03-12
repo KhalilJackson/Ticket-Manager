@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.bowdoin.csci.TicketManager.model.command.Command;
+import edu.bowdoin.csci.TicketManager.model.io.TicketReader;
+import edu.bowdoin.csci.TicketManager.model.io.TicketWriter;
 
 /**
  * @author ewinters
@@ -43,6 +45,7 @@ public class TicketManager {
 	 */
 	public void saveTicketsToFile(String filePath) {
 		
+		TicketWriter.writeTicketFile(filePath, ticketList.ticketList);
 		
 	}
 	
@@ -52,7 +55,7 @@ public class TicketManager {
 	 */
 	public void loadTicketsFromFile(String thing) {
 		
-		
+		ticketList.ticketList = TicketReader.readTicketFile(thing);
 	}
 	
 	/**
@@ -71,7 +74,31 @@ public class TicketManager {
 	 */
 	public String[][] getTicketsForDisplay() {
 		
-		return null;
+		//index 0 id, index 1 type, index 2 state name, index 3 subject, index 4 cate, index 5 priotity
+		
+		String[][] display = new String[ticketList.ticketList.size()][6];
+		
+		int i = 0;
+		
+		
+		//Iterate through the 
+		for (Ticket ticket: ticketList.ticketList) {
+			
+			if (i < ticketList.ticketList.size()) {
+				display[i][0] = Integer.toString(ticket.getTicketId());
+				display[i][1] = ticket.getTicketTypeString();
+				display[i][2] = ticket.getState();
+				display[i][3] = ticket.getSubject();
+				display[i][4] = ticket.getCategory();
+				display[i][5] = ticket.getPriority();
+				
+				i++;
+			}
+			
+			
+		}
+		
+		return display;
 	}
 
 	/**
@@ -99,6 +126,7 @@ public class TicketManager {
 	 */
 	public void executeCommand(int num, Command command) {
 		
+		ticketList.executeCommand(num, command);
 		
 	}
 	
