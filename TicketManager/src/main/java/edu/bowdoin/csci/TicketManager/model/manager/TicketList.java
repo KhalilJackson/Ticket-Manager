@@ -12,19 +12,16 @@ public class TicketList {
 	
 	
 	
-	public static List<Ticket> ticketList = new ArrayList<Ticket>();
+	public static List<Ticket> ticketList;// = new ArrayList<Ticket>();
 	
 	
 	/**
-<<<<<<< HEAD
 	 * Constructor for TicketList that takes in no parameters.
-=======
 	 * Constructor for TicketList class
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public TicketList() {
-		
+		ticketList = new ArrayList<Ticket>();
 	}
 	
 	/**
@@ -41,11 +38,8 @@ public class TicketList {
 	}
 	
 	/**
-<<<<<<< HEAD
 	 * Adds lists of tickets to ticket list.
-=======
 	 * Adds each ticket in a given array of tickets to the ticket list
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void addTickets(List<Ticket> tickets) {
@@ -114,25 +108,29 @@ public class TicketList {
 	}
 	
 	/**
-<<<<<<< HEAD
 	 * Executed command given command and int.
-=======
 	 * Executes the given command
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void executeCommand(int i, Command command) {
 		
+		//ticketList.getTicketById(i).update(command);
+//		if (command == null) {
+//			throw new IllegalArgumentException();
+//		}
+		
+		if (ticketList.isEmpty()) {
+			return;
+		}
+		
+		this.getTicketById(i).update(command);
 		
 		
 	}
 	
 	/**
-<<<<<<< HEAD
 	 * Deletes ticket from list using ID number.
-=======
 	 * Removes the ticket in the list with the given id
->>>>>>> branch 'main' of https://github.com/bowdoin-csci2335-spring2023/project1-07.git
 	 *
 	 */
 	public void deleteTicketById(int id) {
