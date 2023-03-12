@@ -9,8 +9,8 @@ Ticket.ResolvedState 95
 Ticket.NewState 88
 Ticket.FeedbackState 69
 Ticket.ClosedState 100
-TicketManager 70
-TicketList 25
+TicketManager 84
+TicketList 70
 Command.CancellationCode 100
 Command 100
 Command.FeedbackCode 100
