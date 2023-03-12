@@ -17,4 +17,4 @@ Command.FeedbackCode 100
 Command.ResolutionCode 100
 Command.CommandValue 100
 TicketReader 96
-TicketWriter 63
+TicketWriter 61
