@@ -1,10 +1,9 @@
 package edu.bowdoin.csci.TicketManager.model.io;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 
 import edu.bowdoin.csci.TicketManager.model.ticket.Ticket;
 
@@ -22,7 +21,7 @@ public class TicketWriter {
 	 * Writes a ticket file given an array of valid tickets
 	 *
 	 */
-	public static void writeTicketFile(String filePath, ArrayList<Ticket> tickets) {
+	public static void writeTicketFile(String filePath, List<Ticket> tickets) {
 		
 		String ticketsString = "";
 		
@@ -34,13 +33,10 @@ public class TicketWriter {
 			
 			if(tickets.size() > 0) {
 				//The last ticket should not have \n at the end, so it is added separately:
-				String lastString = tickets.get(tickets.size() - 1).toString();
 				ticketsString = ticketsString + tickets.get(tickets.size() - 1).toString();
 				
 				//Remove new line character at end:
 				ticketsString = ticketsString.substring(0, ticketsString.length() - 1);
-				//System.out.println((int)lastString.charAt(lastString.length() - 1));
-				//System.out.println((int)ticketsString.charAt(ticketsString.length() - 1));
 			}
 		}
 		
