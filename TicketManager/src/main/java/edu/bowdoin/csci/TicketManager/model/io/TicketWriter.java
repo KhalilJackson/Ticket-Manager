@@ -53,6 +53,7 @@ public class TicketWriter {
 				writer.close();
 			}
 			else {
+				System.out.println("Bad Filepath TicketWriter Line 56");
 				throw new IllegalArgumentException();
 			}
 			
