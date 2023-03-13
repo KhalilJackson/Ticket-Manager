@@ -157,6 +157,9 @@ public class Ticket {
 		
 		this.setSubject(subject);
 		this.setCaller(caller);
+		if(category == null) {
+			throw new IllegalArgumentException("Ticket cannot have null category.");
+		}
 		this.category = category;
 		this.priority = priority;
 		this.setOwner("");
