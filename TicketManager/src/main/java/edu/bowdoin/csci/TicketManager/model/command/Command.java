@@ -124,6 +124,11 @@ public class Command {
 				throw new IllegalArgumentException("A REOPEN command cannot have a null or empty note.");
 			}
 			break;
+		case CANCEL:
+			if(cancellation_code == null) {
+				throw new IllegalArgumentException("A CANCEL command cannot have a null cancellation_code");
+			}
+			
 			
 		}
 				

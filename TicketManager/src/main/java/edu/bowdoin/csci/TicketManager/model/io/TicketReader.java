@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -56,7 +57,10 @@ public class TicketReader {
 			
 			reader.close();
 			
-		} catch(Exception e) {
+		} catch(FileNotFoundException e) {
+			e.printStackTrace();
+			throw new IllegalArgumentException("Provided file path was invalid.");
+		} catch(IOException e) {
 			e.printStackTrace();
 		}
 		
@@ -114,18 +118,22 @@ public class TicketReader {
 			
 			String lastNote = notes.get(notes.size() - 1);
 			
-			Ticket nextTicket = new Ticket(Integer.parseInt(ticketElements.get(0)), 
-											ticketElements.get(1), 
-											ticketElements.get(2), 
-											ticketElements.get(3), 
-											ticketElements.get(4), 
-											ticketElements.get(5), 
-											ticketElements.get(6), 
-											ticketElements.get(7), 
-											ticketElements.get(8), 
-											notes);
-			
-			tickets.add(nextTicket);
+			try {
+				Ticket nextTicket = new Ticket(Integer.parseInt(ticketElements.get(0)), 
+						ticketElements.get(1), 
+						ticketElements.get(2), 
+						ticketElements.get(3), 
+						ticketElements.get(4), 
+						ticketElements.get(5), 
+						ticketElements.get(6), 
+						ticketElements.get(7), 
+						ticketElements.get(8), 
+						notes);
+
+						tickets.add(nextTicket);
+			}catch(IllegalArgumentException e) {
+				throw new IllegalArgumentException();
+			}
 		}
 		
 		Ticket.setCounter(1);

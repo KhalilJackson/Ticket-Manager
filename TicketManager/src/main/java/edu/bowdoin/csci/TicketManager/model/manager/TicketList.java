@@ -34,7 +34,7 @@ public class TicketList {
 		Ticket newTicket = new Ticket(type, thing1, thing2, category, priority, thing3);
 		
 		ticketList.add(newTicket);
-		return 0;
+		return newTicket.getTicketId();
 	}
 	
 	/**
