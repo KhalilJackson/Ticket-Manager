@@ -86,47 +86,79 @@ public class Command {
 		if(command == null) {
 			throw new IllegalArgumentException();
 		}
+		
 		this.c = command;
-				
-		//A PROCESS Command cannot have an empty or null ownerID
-		if(command.equals(CommandValue.PROCESS) && (owner == null || owner.equals(""))) {
-			throw new IllegalArgumentException();
-		}
 		
-		this.ownerId = owner;
-		
-		//note cannot be empty or null if CommandValue is FEEDBACK, CONFIRM, or REOPEN
-		if(note == "" || note == null) {
-			switch(command) {
-			case FEEDBACK:
-				throw new IllegalArgumentException();
-			
-			case CONFIRM:
-				throw new IllegalArgumentException();
-				
-			case REOPEN:
-				throw new IllegalArgumentException();
-			
-			default:
-				break;
-				
+		switch(command) {
+		case PROCESS:
+			if((owner == null || owner.equals(""))) {
+				throw new IllegalArgumentException("A PROCESS command cannot have a null or empty owner.");
 			}
+			if(note == null || note.equals("")) {
+				throw new IllegalArgumentException("A PROCESS command cannot have a null or empty note.");
+			}
+		case FEEDBACK:
+			if(note == null || note.equals("")) {
+				throw new IllegalArgumentException("A FEEDBACK command cannot have a null or empty note.");
+			}
+			if(feedback_code == null) {
+				throw new IllegalArgumentException("A FEEDBACK command cannot have a null feedback code.");
+			}
+		case RESOLVE:
+			if(note == null || note.equals("")) {
+				throw new IllegalArgumentException("A RESOLVE command cannot have a null or empty note.");
+			}
+			if(resolution_code == null) {
+				throw new IllegalArgumentException("A RESOLVE command cannot have a null resolution_code");
+			}
+		case CONFIRM:
+			if(note == null || note.equals("")) {
+				throw new IllegalArgumentException("A CONFIRM command cannot have a null or empty note.");
+			}
+		case REOPEN:
+			if(note == null || note.equals("")) {
+				throw new IllegalArgumentException("A REOPEN command cannot have a null or empty note.");
+			}
+			
 		}
+				
+//		//A PROCESS Command cannot have an empty or null ownerID
+//		if(command.equals(CommandValue.PROCESS) && (owner == null || owner.equals(""))) {
+//			throw new IllegalArgumentException();
+//		}
+//		
+//		//note cannot be empty or null if CommandValue is FEEDBACK, CONFIRM, or REOPEN
+//		if(note == "" || note == null) {
+//			switch(command) {
+//			case FEEDBACK:
+//				throw new IllegalArgumentException();
+//			
+//			case CONFIRM:
+//				throw new IllegalArgumentException();
+//				
+//			case REOPEN:
+//				throw new IllegalArgumentException();
+//			
+//			default:
+//				break;
+//				
+//			}
+//		}
+		this.ownerId = owner;
 		this.note = note;
-		
-		//A FEEDBACK Command cannot have a null feedbackCode
-		if(command.equals(CommandValue.FEEDBACK) && feedback_code == null) {
-			throw new IllegalArgumentException();
-		}
 		this.feedbackCode = feedback_code;
-		
-		//A RESOLVE command cannot have a null resolutionCode
-		if(command.equals(CommandValue.RESOLVE) && resolution_code == null) {
-			throw new IllegalArgumentException();
-		}
 		this.resolutionCode = resolution_code;
-		
 		this.cancellationCode = cancellation_code;
+		
+//		//A FEEDBACK Command cannot have a null feedbackCode
+//		if(command.equals(CommandValue.FEEDBACK) && feedback_code == null) {
+//			throw new IllegalArgumentException();
+//		}
+//		
+//		//A RESOLVE command cannot have a null resolutionCode
+//		if(command.equals(CommandValue.RESOLVE) && resolution_code == null) {
+//			throw new IllegalArgumentException();
+//		}
 		
 	}
 	
