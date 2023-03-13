@@ -97,6 +97,7 @@ public class Command {
 			if(note == null || note.equals("")) {
 				throw new IllegalArgumentException("A PROCESS command cannot have a null or empty note.");
 			}
+			break;
 		case FEEDBACK:
 			if(note == null || note.equals("")) {
 				throw new IllegalArgumentException("A FEEDBACK command cannot have a null or empty note.");
@@ -104,6 +105,7 @@ public class Command {
 			if(feedback_code == null) {
 				throw new IllegalArgumentException("A FEEDBACK command cannot have a null feedback code.");
 			}
+			break;
 		case RESOLVE:
 			if(note == null || note.equals("")) {
 				throw new IllegalArgumentException("A RESOLVE command cannot have a null or empty note.");
@@ -111,14 +113,17 @@ public class Command {
 			if(resolution_code == null) {
 				throw new IllegalArgumentException("A RESOLVE command cannot have a null resolution_code");
 			}
+			break;
 		case CONFIRM:
 			if(note == null || note.equals("")) {
 				throw new IllegalArgumentException("A CONFIRM command cannot have a null or empty note.");
 			}
+			break;
 		case REOPEN:
 			if(note == null || note.equals("")) {
 				throw new IllegalArgumentException("A REOPEN command cannot have a null or empty note.");
 			}
+			break;
 			
 		}
 				
