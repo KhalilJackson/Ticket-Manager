@@ -136,10 +136,10 @@ public class TicketList {
 		
 		if ((id > 0)) {
 			
-			for (Ticket ticket: ticketList) {
+			for (int i = 0; i < ticketList.size(); i++) {
 				
-				if (ticket.getTicketId() == id) {
-					ticketList.remove(ticket);
+				if (ticketList.get(i).getTicketId() == id) {
+					ticketList.remove(i);
 				}
 			}
 			
