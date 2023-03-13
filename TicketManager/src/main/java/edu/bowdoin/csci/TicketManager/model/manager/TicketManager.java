@@ -117,7 +117,7 @@ public class TicketManager {
 		//Iterate through the 
 		for (Ticket ticket: ticketList.ticketList) {
 			
-			if ((i < ticketList.ticketList.size()) && (ticket.getTicketType() == typeTicket)) {
+			if ((i < ticketList.ticketList.size()) && (ticket.getTicketType().equals(typeTicket))) {
 				display[i][0] = Integer.toString(ticket.getTicketId());
 				display[i][1] = ticket.getTicketTypeString();
 				display[i][2] = ticket.getState();
