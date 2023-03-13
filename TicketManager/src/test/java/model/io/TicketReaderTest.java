@@ -27,9 +27,9 @@ public class TicketReaderTest {
 		
 		try {
 			ArrayList<Ticket> badTicket = TicketReader.readTicketFile("test-files/badPath");
-			
-		}catch(Exception e) {
 			Assertions.fail("TicketReaderTest.testReadTicketFilePath() - Input an invalid path to the readTicket() method and got an error, as expected.");
+		}catch(Exception e) {
+			//Error expected, carry on.
 		}
 		
 	}

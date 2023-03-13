@@ -167,7 +167,7 @@ public class Ticket {
 		this.priority = priority;
 		this.setOwner("");
 		
-		if(notes == null) {
+		if(notes == null || notes.equals("")) {
 			throw new IllegalArgumentException();
 		}
 		
