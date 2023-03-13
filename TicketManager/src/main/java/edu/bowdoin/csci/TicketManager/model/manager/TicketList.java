@@ -45,10 +45,22 @@ public class TicketList {
 	 */
 	public void addTickets(List<Ticket> tickets) {
 		
-		if (tickets != null) {
+		ticketList.clear();
+		
+		int maxID=0;
+		for(int i = 0; i < tickets.size(); i++) {
+			ticketList.add(tickets.get(i));
 			
-			ticketList.addAll(tickets);
+			if(tickets.get(i).getTicketId() > maxID) {
+				maxID = tickets.get(i).getTicketId();
+			}
 		}
+		
+		Ticket.setCounter( + 1);
+//		if (tickets != null) {
+//			
+//			ticketList.addAll(tickets);
+//		}
 		
 	}
 	
