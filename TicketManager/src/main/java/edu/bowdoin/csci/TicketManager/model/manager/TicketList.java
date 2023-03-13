@@ -101,10 +101,10 @@ public class TicketList {
 	 */
 	public Ticket getTicketById(int id) {
 		
-		for (Ticket ticket: ticketList) {
+		for (int i = 0; i < ticketList.size(); i++) {
 		
-			if (ticket.getTicketId() == id) {
-				return ticket;
+			if (ticketList.get(i).getTicketId() == id) {
+				return ticketList.get(i);
 			}
 		}
 		
