@@ -12,7 +12,7 @@ public class TicketList {
 	
 	
 	
-	public static List<Ticket> ticketList;// = new ArrayList<Ticket>();
+	public static List<Ticket> ticketList;
 	
 	
 	/**
@@ -22,6 +22,7 @@ public class TicketList {
 	 */
 	public TicketList() {
 		ticketList = new ArrayList<Ticket>();
+		Ticket.setCounter(1);
 	}
 	
 	/**
