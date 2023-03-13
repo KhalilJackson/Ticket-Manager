@@ -108,7 +108,7 @@ public class TicketList {
 			}
 		}
 		
-		throw new IllegalArgumentException();
+		return null;
 	}
 	
 	/**
