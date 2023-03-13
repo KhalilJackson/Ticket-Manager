@@ -45,17 +45,6 @@ public class TicketWriter {
 		try {
 			
 			File ticketFile = new File(filePath);
-			
-			//Create a new file and write to it. If file already exists, throw an error.
-//			if(ticketFile.createNewFile()) {
-//				FileWriter writer = new FileWriter(ticketFile);
-//				writer.write(ticketsString);
-//				writer.close();
-//			}
-//			else {
-//				throw new IllegalArgumentException();
-//			}
-			
 			FileWriter writer = new FileWriter(ticketFile);
 			writer.write(ticketsString);
 			writer.close();

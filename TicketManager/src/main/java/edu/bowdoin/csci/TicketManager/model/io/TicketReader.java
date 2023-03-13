@@ -113,9 +113,6 @@ public class TicketReader {
 			}
 			
 			String lastNote = notes.get(notes.size() - 1);
-			for(int j = 0; j < lastNote.length(); j++) {
-				System.out.println((int)lastNote.charAt(j));
-			}
 			
 			Ticket nextTicket = new Ticket(Integer.parseInt(ticketElements.get(0)), 
 											ticketElements.get(1), 
@@ -130,6 +127,8 @@ public class TicketReader {
 			
 			tickets.add(nextTicket);
 		}
+		
+		Ticket.setCounter(1);
 		
 		return tickets;
 	}

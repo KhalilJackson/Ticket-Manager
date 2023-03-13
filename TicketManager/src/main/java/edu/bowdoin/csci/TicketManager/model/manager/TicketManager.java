@@ -149,7 +149,7 @@ public class TicketManager {
 		
 		//Ticket newTicket = new Ticket(ticketType, s2, s2, cat, p, s3);
 		
-		ticketList.addTicket(ticketType, s2, s2, cat, p, s3);
+		ticketList.addTicket(ticketType, s1, s2, cat, p, s3);
 		
 	}
 	

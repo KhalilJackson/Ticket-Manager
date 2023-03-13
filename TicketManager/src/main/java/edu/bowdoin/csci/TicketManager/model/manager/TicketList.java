@@ -108,8 +108,7 @@ public class TicketList {
 	}
 	
 	/**
-	 * Executed command given command and int.
-	 * Executes the given command
+	 * Executes the given command on the ticket with ticket ID i
 	 *
 	 */
 	public void executeCommand(int i, Command command) {

@@ -65,9 +65,9 @@ public class TicketManagerTest {
 		TicketManager model = TicketManager.getInstance();
 		model.createNewTicketList();
 		model.addTicketToList(TicketType.REQUEST, subject, caller, Category.SOFTWARE, Priority.URGENT, note);
-		model.saveTicketsToFile(path + "act_ticket_new.txt");
+		model.saveTicketsToFile(path + "act_ticket_new_copy.txt");
 		String testInfo = "TicketManagerTest.testSaveTicketsToFile() - added new ticket to new ticket list and compare with exp_ticket_new.txt";
-		Assertions.assertTrue(compareFiles(testInfo, path + "exp_ticket_new.txt", path + "act_ticket_new.txt"), testInfo);
+		Assertions.assertTrue(compareFiles(testInfo, path + "exp_ticket_new.txt", path + "act_ticket_new_copy.txt"), testInfo);
 	}
 	
 	
