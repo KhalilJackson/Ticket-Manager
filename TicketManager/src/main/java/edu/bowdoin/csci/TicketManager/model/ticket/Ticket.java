@@ -871,6 +871,12 @@ public class Ticket {
 			    	if(command.getResolutionCode() == null) {
 			    		throw new UnsupportedOperationException("Resolution code required to move to resolved state.");
 			    	}
+			    	if((command.getResolutionCode() == Command.ResolutionCode.COMPLETED || command.getResolutionCode() == Command.ResolutionCode.NOT_COMPLETED) && ticketType == TicketType.INCIDENT) {
+			    		throw new UnsupportedOperationException();
+			    	}
+			    	if((command.getResolutionCode() == Command.ResolutionCode.SOLVED || command.getResolutionCode() == Command.ResolutionCode.NOT_SOLVED || command.getResolutionCode() == Command.ResolutionCode.WORKAROUND) && ticketType == TicketType.REQUEST) {
+			    		throw new UnsupportedOperationException();
+			    	}
 			    	
 			    	if(command.getNote() != null) {
 			    		notes.add(command.getNote());
@@ -890,6 +896,7 @@ public class Ticket {
 			    		notes.add(command.getNote());
 			    	}
 			    	
+			    	feedbackCode = null;
 			    	cancellationCode = command.getCancellationCode();
 			    	state = canceledState;
 			    	break;
