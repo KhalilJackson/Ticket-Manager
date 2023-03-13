@@ -73,6 +73,10 @@ public class TicketList {
 	 */
 	public List<Ticket> getTicketsByType(TicketType type){
 		
+		if (type == null) {
+			throw new IllegalArgumentException();
+		}
+		
 		List<Ticket> ticketsOfType = new ArrayList<Ticket>();
 		
 		for (Ticket ticket: ticketList) {
