@@ -59,7 +59,7 @@ public class TicketReader {
 			
 		} catch(FileNotFoundException e) {
 			e.printStackTrace();
-			throw new IllegalArgumentException("Provided file path was invalid.");
+			throw new IllegalArgumentException("Unable to load file.");
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -132,7 +132,7 @@ public class TicketReader {
 
 						tickets.add(nextTicket);
 			}catch(IllegalArgumentException e) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException("Unable to load file.");
 			}
 		}
 		
